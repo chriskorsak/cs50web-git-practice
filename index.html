@@ -34,7 +34,7 @@
     </ol>
 
     <h2>Merge Conflicts</h2>
-    <p>When pulling or pushing changes, it's possible to get a merge conflict if multiple people are working on the same file.</p>
+    <p>When pulling or pushing changes, it's possible to get a merge conflict if multiple people are working on the same file, or when mergining branches.</p>
     <ol>
       <li>Go to file with merge conflict and fix what's inside arrows.</li>
       <li>Between head and equals signs are your local changes</li>
@@ -54,11 +54,26 @@
       e = 5
     </pre>
 
+    <h2>Branching</h2>
+    <p>Working on a feature branch instead of the master branch is a good idea.</p>
+    <ol>
+      <li><span class="code">git branch</span> tells you what branch you are on.</li>
+      <li><span class="code">git checkout -b (new branch name)</span> creates and switches to a new branch</li>
+      <li><span class="code">git checkout ( branch name)</span> switches to a different branch</li>
+      <li><span class="code">git merge (branch name)</span> merges branches. Be sure to check which branch you are on first.</li>
+
+    </ol>
     <h2>Other Git commands, tips, and shortcuts</h2>
     <ul>
       <li><span class="code">git commit -am "message"</span>. This adds all files and commits changes in one command.</li>
       <li><span class="code">git log</span> shows all commits and commit messages</li>
-      <li><span class="code"></span></li>
+      <li><span class="code">git reset --hard (commit hash code)</span> will revert back to a previous commit.</li>
+      <li><span class="code">git reset --hard origin/master</span> will revert back to the version on github.</li>
     </ul>
+    <h2>Github Specifics</h2>
+    <ol>
+      <li>You can "fork" someone else's repository and it creates a copy in your account</li>
+      <li>You can make changes and submit a pull request to the original owner of the code to possibly merge your changes with theirs if they approve. This is a good way to collaborate on projects.</li>
+    </ol>
   </body>
 </html>
