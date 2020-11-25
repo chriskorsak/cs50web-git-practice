@@ -2,24 +2,63 @@
 <html lang="en">
   <head>
     <title>CS50 Web: Git Workflow</title>
+    <style>
+      .code {
+        font-family: monospace;
+        font-weight: bold;
+      }
+    </style>
   </head>
   <body>
     <h1>CS50 Web: Git Workflow</h1>
+    <h2>Starting a Project</h2>
     <ol>
       <li>Create remote repository on Github</li>
-      <li>Terminal: navigate to where you want to clone github directory on your local computer, then type: git clone (url of repository)</li>
+      <li>Terminal: navigate to where you want to clone github directory on your local computer, then type: <span class="code">git clone (url of repository)</span></li>
+    </ol>
+    <h2>Git Push - upload latest local changes to remote repository</h2>
+    <ol>
       <li>Create project files on local computer (html, css, js, etc..)</li>
-      <li>Terminal: git add (name of project file)</li>
-      <li>Terminal: git commit -m "short message here detailing work you've done on files"</li>
-      <li>Terminal: git status</li>
+      <li>Terminal: <span class="code">git add (name of project file)</span></li>
+      <li>Terminal: <span class="code">git commit -m "short message here detailing work you've done on files"</span></li>
+      <li>Terminal: <span class="code">git status</span></li>
         <ul>
           <li>This tells you what's currently happening in the repository</li>
         </ul>
-      <li>Terminal: git push</li>
+      <li>Terminal: <span class="code">git push</span></li>
     </ol>
-    <h2>Git tips and shortcuts</h2>
+
+    <h2>Git Pull -download latest remote changes to local machine</h2>
+    <ol>
+      <li>Terminal: <span class="code">git pull</span></li>
+    </ol>
+
+    <h2>Merge Conflicts</h2>
+    <p>When pulling or pushing changes, it's possible to get a merge conflict if multiple people are working on the same file.</p>
+    <ol>
+      <li>Go to file with merge conflict and fix what's inside arrows.</li>
+      <li>Between head and equals signs are your local changes</li>
+      <li>Between equals sign and end arrows is remote version</li>
+      <li>Remove all arrows, equal sign, and commit hash and save</li>
+      <li>Add file <span class="code">git add (file name)</span> and push <span class="code">git push -m "message"</span></li>
+    </ol>
+    <pre>
+      a = 1
+      <<<<< HEAD
+      b = 2
+      =====
+      b = 3
+      >>>>> 56782736387980937883
+      c = 3
+      d = 4
+      e = 5
+    </pre>
+
+    <h2>Other Git commands, tips, and shortcuts</h2>
     <ul>
-      <li>Instead of typing: git add (name of file), then git commit -m "commit message here", you can just type: git commit -am "message". This adds all files and commits in one command.</li>
+      <li><span class="code">git commit -am "message"</span>. This adds all files and commits changes in one command.</li>
+      <li><span class="code">git log</span> shows all commits and commit messages</li>
+      <li><span class="code"></span></li>
     </ul>
   </body>
 </html>
