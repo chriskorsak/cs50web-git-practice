@@ -58,9 +58,11 @@
     <p>Working on a feature branch instead of the master branch is a good idea.</p>
     <ol>
       <li><span class="code">git branch</span> tells you what branch you are on.</li>
+      <li><span class="code">git branch (new branch name)</span> creates a new branch.</li>
       <li><span class="code">git checkout -b (new branch name)</span> creates and switches to a new branch</li>
       <li><span class="code">git checkout ( branch name)</span> switches to a different branch</li>
-      <li><span class="code">git merge (branch name)</span> merges branches. Be sure to check which branch you are on first.</li>
+      <li><span class="code">git merge (branch name)</span> merges branches. The branch you are currently on will be the one you introduce code into.</li>
+      <li><span class="code">git branch -d (branch name) will delete an unused branch.</span></li>
 
     </ol>
     <h2>Other Git commands, tips, and shortcuts</h2>
@@ -71,9 +73,17 @@
       <li><span class="code">git reset --hard origin/master</span> will revert back to the version on github.</li>
     </ul>
     <h2>Github Specifics</h2>
+    <h3>Forking</h3>
     <ol>
       <li>You can "fork" someone else's repository and it creates a copy in your account</li>
       <li>You can make changes and submit a pull request to the original owner of the code to possibly merge your changes with theirs if they approve. This is a good way to collaborate on projects.</li>
+    </ol>
+    <h3>Github Pages</h3>
+    <ol>
+      <li>You can host static web pages on Github by creating and pushing to a branch called gh-pages.</li>
+      <li>Terminal: <span class="code">git branch gh-pages</span></li>
+      <li>Terminal: <span class="code">git push origin gh-pages</span></li>
+      <li>Your page is now hosted at: <span class="code">https://chriskorsak.github.io/(directoryname)</span></li>
     </ol>
   </body>
 </html>
