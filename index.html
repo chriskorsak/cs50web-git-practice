@@ -11,7 +11,7 @@
   </head>
   <body>
     <h1>CS50 Web: Git Workflow</h1>
-    <h2>Starting a Project</h2>
+    <h2>Starting a Project on Github First</h2>
     <ol>
       <li>Create remote repository on Github</li>
       <li>Terminal: navigate to where you want to clone github directory on your local computer, then type: <span class="code">git clone (url of repository)</span></li>
@@ -21,16 +21,30 @@
       <li>Create project files on local computer (html, css, js, etc..)</li>
       <li>Terminal: <span class="code">git add (name of project file)</span></li>
       <li>Terminal: <span class="code">git commit -m "short message here detailing work you've done on files"</span></li>
-      <li>Terminal: <span class="code">git status</span></li>
-        <ul>
-          <li>This tells you what's currently happening in the repository</li>
-        </ul>
       <li>Terminal: <span class="code">git push</span></li>
     </ol>
 
     <h2>Git Pull -download latest remote changes to local machine</h2>
     <ol>
       <li>Terminal: <span class="code">git pull</span></li>
+    </ol>
+
+    <h2>Starting a project on your local computer first</h2>
+    <ol>
+      <li>Navigate to location on computer where you want to create project.</li>
+      <li>Terminal: <span class="code">mkdir (project name)</span></li>
+      <li>Terminal: <span class="code">cd (project name)</span></li>
+      <li>Terminal: <span class="code">git init</span></li>
+      <li>Create project files on local computer (html, css, js, etc..)</li>
+      <li>Terminal: <span class="code">git add (name of project file)</span></li>
+      <li>Terminal: <span class="code">git commit -m "short message here detailing work you've done on files"</span></li>
+      <li>Create remote repository on Github</li>
+      <li>Terminal: <span class="code">git remote add origin (url of repository)</span></li>
+      <li>Terminal: <span class="code">git push origin master</span></li>
+        <ul>
+          <li>You can also push to a different branch on origin, for example: <span class="code">git push origin gh-pages</span></li>
+        </ul>
+
     </ol>
 
     <h2>Merge Conflicts</h2>
@@ -67,6 +81,10 @@
     </ol>
     <h2>Other Git commands, tips, and shortcuts</h2>
     <ul>
+      <li>Terminal: <span class="code">git status</span></li>
+        <ul>
+          <li>This tells you what's currently happening in the repository</li>
+        </ul>
       <li><span class="code">git commit -am "message"</span>. This adds all files and commits changes in one command.</li>
       <li><span class="code">git log</span> shows all commits and commit messages</li>
       <li><span class="code">git reset --hard (commit hash code)</span> will revert back to a previous commit.</li>
