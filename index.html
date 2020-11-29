@@ -1,35 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>CS50 Web: Git Workflow</title>
+    <title>Git Workflow</title>
+
     <style>
       .code {
         font-family: monospace;
         font-weight: bold;
       }
+
+      body {
+        margin: 2%;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: Helvetica, sans-serif;
+      }
     </style>
+
   </head>
   <body>
-    <h1>CS50 Web: Git Workflow</h1>
-    <h2>Starting a Project on Github First</h2>
+
+    <h1>Git Workflow</h1>
+    <h2>Starting a Project on Github</h2>
     <ol>
       <li>Create remote repository on Github</li>
-      <li>Terminal: navigate to where you want to clone github directory on your local computer, then type: <span class="code">git clone (url of repository)</span></li>
-    </ol>
-    <h2>Git Push - upload latest local changes to remote repository</h2>
-    <ol>
-      <li>Create project files on local computer (html, css, js, etc..)</li>
+      <li>Navigate to where you want to clone github directory on your local computer. Terminal: <span class="code">git clone (url of repository)</span></li>
+      <li>Create or update project files on local computer (html, css, js, etc..)</li>
       <li>Terminal: <span class="code">git add (name of project file)</span></li>
       <li>Terminal: <span class="code">git commit -m "short message here detailing work you've done on files"</span></li>
       <li>Terminal: <span class="code">git push</span></li>
     </ol>
 
-    <h2>Git Pull -download latest remote changes to local machine</h2>
-    <ol>
-      <li>Terminal: <span class="code">git pull</span></li>
-    </ol>
-
-    <h2>Starting a project on your local computer first</h2>
+    <h2>Starting a Project on Your Local Computer</h2>
     <ol>
       <li>Navigate to location on computer where you want to create project.</li>
       <li>Terminal: <span class="code">mkdir (project name)</span></li>
@@ -40,11 +44,12 @@
       <li>Terminal: <span class="code">git commit -m "short message here detailing work you've done on files"</span></li>
       <li>Create remote repository on Github</li>
       <li>Terminal: <span class="code">git remote add origin (url of repository)</span></li>
-      <li>Terminal: <span class="code">git push origin master</span></li>
-        <ul>
-          <li>You can also push to a different branch on origin, for example: <span class="code">git push origin gh-pages</span></li>
-        </ul>
+      <li>Terminal: <span class="code">git push origin master</span> (master/main/gh-pages, whatever the branch your pushing to is called)</li>
+    </ol>
 
+    <h2>Git Pull -download latest remote changes to local machine</h2>
+    <ol>
+      <li>Terminal: <span class="code">git pull</span></li>
     </ol>
 
     <h2>Merge Conflicts</h2>
@@ -53,9 +58,10 @@
       <li>Go to file with merge conflict and fix what's inside arrows.</li>
       <li>Between head and equals signs are your local changes</li>
       <li>Between equals sign and end arrows is remote version</li>
-      <li>Remove all arrows, equal sign, and commit hash and save</li>
-      <li>Add file <span class="code">git add (file name)</span>, commit <span class="code">git commit -m "message"</span>, and push <span class="code">git push</span></li>
+      <li>Remove all arrows, equal sign, and commit hash, then save</li>
+      <li>Add file, commit, and push.</li>
     </ol>
+    <h3>Example of merge conflict code:</h3>
     <pre>
       a = 1
       <<<<< HEAD
@@ -69,7 +75,6 @@
     </pre>
 
     <h2>Branching</h2>
-    <p>Working on a feature branch instead of the master branch is a good idea.</p>
     <ol>
       <li><span class="code">git branch</span> tells you what branch you are on.</li>
       <li><span class="code">git branch (new branch name)</span> creates a new branch.</li>
@@ -77,8 +82,26 @@
       <li><span class="code">git checkout ( branch name)</span> switches to a different branch</li>
       <li><span class="code">git merge (branch name)</span> merges branches. The branch you are currently on will be the one you introduce code into.</li>
       <li><span class="code">git branch -d (branch name) will delete an unused branch.</span></li>
-
     </ol>
+
+    <p>Working on a feature branch instead of the main (aka master) branch is a good idea. After you have an initial commit on the main/master branch, you can create a feature/develop branch. Work on that branch, then merge into the main/master branch.</p>
+
+    <h3>Sample Git Team Workflow</h3>
+    <ol>
+      <li>Setup github repository and clone to local machine</li>
+      <li>Make inital commit on main/master branch and push to remote repository</li>
+      <li>Create feature/dev branch and switch to that branch.</li>
+      <li>Code and commit work</li>
+      <li>Pull origin main/master to local main/master</li>
+        <ul>
+          <li>Switch back to master branch</li>
+          <li>Terminal: <span class="code">Git pull origin main</span></li>
+        </ul>
+      <li>Merge local feature/dev into local main/master branch. Test code with most up to date version from origin main.</li>
+      <li>Push local main to origin main</li>
+    </ol>
+
+
     <h2>Other Git commands, tips, and shortcuts</h2>
     <ul>
       <li>Terminal: <span class="code">git status</span></li>
@@ -92,6 +115,7 @@
       <li><span class="code">git remote -v</span> shows you the remote repository url location.</li>
       <li><span class="code">git remote set-url origin (new url here)</span> will change the remote url in git. This is good if you happen to rename a github repository.</li>
     </ul>
+
     <h2>Github Specifics</h2>
     <h3>Forking</h3>
     <ol>
