@@ -21,124 +21,167 @@
 
   </head>
   <body>
-
-    <h1>Git Workflow</h1>
-    <h2>Starting a Project on Github</h2>
-    <ol>
-      <li>Create remote repository on Github.com</li>
-      <li>In Terminal, navigate to a directory on your computer where you want to clone the github directory. Terminal: <span class="code">git clone &lturl of repository&gt</span></li>
-      
-    </ol>
-
-    <h2>Starting a Project on Your Local Computer</h2>
-    <ol>
-      <li>Navigate to location on computer where you want to create project.</li>
-      <li>Create directory in Terminal: <span class="code">mkdir &ltproject name&gt</span></li>
-      <li>Change to project directory in Terminal: <span class="code">cd &ltproject name&gt</span></li>
-      <li>Initialize a git local git repository. Terminal: <span class="code">git init</span></li>
-    </ol>
-
-    <h2>Adding and removing files, discarding changes, commiting, pushing and pulling files</h2>
-    <ul>
-      <li>Add altered file to staging. Terminal: <span class="code">git add &ltname of file&gt</span></li>
-      <li>Add all altered files with specific extension to staging (ex. all html files). Terminal: <span class="code">git add *.html</span></li>
-      <li>Add all altered files to staging. Terminal: <span class="code">git add .</span> </li>
-      <li>Remove file from staging. Terminal: <span class="code">git restore --staged &ltname of file&gt</span></li>
-      <li>Discard changes to a file. Terminal: <span class="code">git restore &ltname of file&gt</span></li>
-      <li>Commit your changes. Terminal: <span class="code">git commit -m "short message here detailing work you've done on files"</span></li>
-      <li>Terminal: <span class="code">git remote add origin &lturl of repository&gt</span></li>
-      <li>Terminal: <span class="code">git push origin master</span> (master/main/gh-pages, whatever the branch you'r e pushing to is called)</li>
-      <li>Pull the latest version from github. Terminal: <span class="code">git pull</span></li>
-    </ul>
-
-    <h2>Merge Conflicts</h2>
-    <p>When pulling or pushing changes, it's possible to get a merge conflict if multiple people are working on the same file, or when mergining branches.</p>
-    <ol>
-      <li>Go to file with merge conflict and fix what's inside arrows.</li>
-      <li>Between head and equals signs are your local changes</li>
-      <li>Between equals sign and end arrows is remote version</li>
-      <li>Remove all arrows, equal sign, and commit hash, then save</li>
-      <li>Add file, commit, and push.</li>
-    </ol>
-    <h3>Example of merge conflict code:</h3>
-    <pre>
-      a = 1
-      <<<<< HEAD
-      b = 2
-      =====
-      b = 3
-      >>>>> 56782736387980937883
-      c = 3
-      d = 4
-      e = 5
-    </pre>
-
-    <h2>Branching</h2>
-    <ol>
-      <li><span class="code">git branch</span> tells you which branch you're on.</li>
-      <li><span class="code">git branch &ltnew branch name&gt</span> creates a new branch.</li>
-      <li><span class="code">git checkout -b &ltnew branch name&gt</span> creates and switches to a new branch</li>
-      <li><span class="code">git checkout &ltbranch name&gt</span> switches to a different branch</li>
-      <li><span class="code">git merge &ltbranch name&gt</span> merges branches. The branch you are currently on will be the one you introduce code into.</li>
-      <li><span class="code">git branch -d &ltbranch name&gt will delete an unused branch.</span></li>
-    </ol>
-
-    <p>Working on a feature branch instead of the main (aka master) branch is good practice. After you have an initial commit on the main/master branch, you can create a feature/develop branch. Work on that branch, then merge into the main/master branch. This can be a good idea even if you're working solo.</p>
-
-    <h3>Sample Git Team Workflow</h3>
-    <ol>
-      <li>Setup github repository and clone to local machine</li>
-      <li>Make inital commit on main/master branch and push to remote repository</li>
-      <li>Create feature/dev branch and switch to that branch.</li>
-      <li>Code and commit work</li>
-      <li>Pull origin main/master to local main/master</li>
+    <header>
+      <h1>Git Workflow</h1>
+      <nav>
         <ul>
-          <li>Switch back to master branch</li>
-          <li>Terminal: <span class="code">Git pull origin main</span></li>
+          <li><a href="#section1">Start project on Github</a></li>
+          <li><a href="#section2">Start project on local</a></li>
+          <li><a href="#section3">Basic commands</a></li>
+          <li><a href="#section4">Merge conflicts</a></li>
+          <li><a href="#section5">Branching</a></li>
+          <li><a href="#section6">Other Git commands, tips, and shortcuts</a></li>
+          <li><a href="#section7">Vim editor</a></li>
+          <li><a href="#section8">Github specifics</a></li>
+          <li><a href="#section9">Git Ignore</a></li>
         </ul>
-      <li>Merge local feature/dev into local main/master branch. Test code with most up to date version from origin main.</li>
-      <li>Push local main to origin main</li>
-    </ol>
+      </nav>
+    </header>
 
+    <main>
+      <section id='section1'>
+        <h2>Starting a Project on Github</h2>
+        <ol>
+          <li>Create remote repository on Github.com</li>
+          <li>In Terminal, navigate to a directory on your computer where you want to clone the github directory. Terminal: <span class="code">git clone &lturl of repository&gt</span></li>
+        </ol>
+      </section>
 
-    <h2>Other Git commands, tips, and shortcuts</h2>
-    <ul>
-      <li>Terminal: <span class="code">git status</span></li>
+      <section id='section2'>
+        <h2>Starting a Project on Your Local Computer</h2>
+        <ol>
+          <li>Navigate to location on computer where you want to create project.</li>
+          <li>Create directory in Terminal: <span class="code">mkdir &ltproject name&gt</span></li>
+          <li>Change to project directory in Terminal: <span class="code">cd &ltproject name&gt</span></li>
+          <li>Initialize a git local git repository. Terminal: <span class="code">git init</span></li>
+        </ol>
+      </section>
+
+      <section id='section3'>
+        <h2>Basic Commands</h2>
+        <h3>Adding and removing files, discarding changes, commiting, pushing and pulling files</h3>
         <ul>
-          <li>This tells you what's currently happening in the repository</li>
+          <li>Add altered file to staging. Terminal: <span class="code">git add &ltname of file&gt</span></li>
+          <li>Add all altered files with specific extension to staging (ex. all html files). Terminal: <span class="code">git add *.html</span></li>
+          <li>Add all altered files to staging. Terminal: <span class="code">git add .</span> </li>
+          <li>Remove file from staging. Terminal: <span class="code">git restore --staged &ltname of file&gt</span></li>
+          <li>Discard changes to a file. Terminal: <span class="code">git restore &ltname of file&gt</span></li>
+          <li>Commit your changes. Terminal: <span class="code">git commit -m "short message here detailing work you've done on files"</span></li>
+          <li>Terminal: <span class="code">git remote add origin &lturl of repository&gt</span></li>
+          <li>Terminal: <span class="code">git push origin master</span> (master/main/gh-pages, whatever the branch you'r e pushing to is called)</li>
+          <li>Pull the latest version from github. Terminal: <span class="code">git pull</span></li>
         </ul>
-      <li><span class="code">git commit -am "message"</span>. This adds all files and commits changes in one command.</li>
-      <li><span class="code">git log</span> shows all commits and commit messages</li>
-      <li><span class="code">git reset --hard (commit hash code)</span> will revert back to a previous commit.</li>
-      <li><span class="code">git reset --hard origin/master</span> will revert back to the version on github.</li>
-      <li><span class="code">git reset</span> will unstage all staged files ready for a commit</li>
-      <li><span class="code">git reset (file path)</span> will unstage an individual file ready for a commit.</li>
-      <li><span class="code">git remote -v</span> shows you the remote repository url location.</li>
-      <li><span class="code">git remote set-url origin (new url here)</span> will change the remote url in git. This is good if you happen to rename a github repository.</li>
-    </ul>
+      </section>
 
-    <h2>Vim Editor</h2>
-    <p>Sometimes git opens something called a vim text editor. This happens if you don't add a message to a commit, or during merges. Here are some useful commands:</p>
-    <ul>
-      <li>Type <span class="code">i</span>. This is insert mode which allows you to edit the file you are now in.</li>
-      <li>Write your commit message on the first line if need be.</li>
-      <li>Hit <span class="code">esc</span> button to return to normal mode.</li>
-      <li>To save and quit, type <span class="code">:wq</span> aka write and quit.</li>
-      <li>Hit <span class="code">Enter</span> to return to normal Terminal window.</li>
-    </ul>
+      <section id='section4'>
+        <h2>Merge Conflicts</h2>
+        <p>When pulling or pushing changes, it's possible to get a merge conflict if multiple people are working on the same file, or when mergining branches.</p>
+        <ol>
+          <li>Go to file with merge conflict and fix what's inside arrows.</li>
+          <li>Between head and equals signs are your local changes</li>
+          <li>Between equals sign and end arrows is remote version</li>
+          <li>Remove all arrows, equal sign, and commit hash, then save</li>
+          <li>Add file, commit, and push.</li>
+        </ol>
+        <h3>Example of merge conflict code:</h3>
+        <pre>
+          a = 1
+          <<<<< HEAD
+          b = 2
+          =====
+          b = 3
+          >>>>> 56782736387980937883
+          c = 3
+          d = 4
+          e = 5
+        </pre>
+    </section>
 
-    <h2>Github Specifics</h2>
-    <h3>Forking</h3>
-    <ol>
-      <li>You can "fork" someone else's repository and it creates a copy in your account</li>
-      <li>You can make changes and submit a pull request to the original owner of the code to possibly merge your changes with theirs if they approve. This is a good way to collaborate on projects.</li>
-    </ol>
-    <h3>Github Pages</h3>
-    <ol>
-      <li>You can host static web pages on Github by creating and pushing to a branch called gh-pages.</li>
-      <li>Terminal: <span class="code">git branch gh-pages</span></li>
-      <li>Terminal: <span class="code">git push origin gh-pages</span></li>
-      <li>Your page is now hosted at: <span class="code">https://chriskorsak.github.io/(directoryname)</span></li>
-    </ol>
+      <section id='section5'>
+        <h2>Branching</h2>
+        <ol>
+          <li><span class="code">git branch</span> tells you which branch you're on.</li>
+          <li><span class="code">git branch &ltnew branch name&gt</span> creates a new branch.</li>
+          <li><span class="code">git checkout -b &ltnew branch name&gt</span> creates and switches to a new branch</li>
+          <li><span class="code">git checkout &ltbranch name&gt</span> switches to a different branch</li>
+          <li><span class="code">git merge &ltbranch name&gt</span> merges branches. The branch you are currently on will be the one you introduce code into from the branch specified in this command.</li>
+          <li><span class="code">git branch -d &ltbranch name&gt</span> will delete an unused branch.</li>
+        </ol>
+
+        <p>Working on a feature branch instead of the main (aka master) branch is good practice. After you have an initial commit on the main/master branch, you can create a feature/develop branch. Work on that branch, then merge into the main/master branch. This can be a good idea even if you're working solo.</p>
+
+        <h3>Sample Git Team Workflow</h3>
+        <ol>
+          <li>Setup github repository and clone to local machine</li>
+          <li>Make inital commit on main/master branch and push to remote repository</li>
+          <li>Create feature/dev branch and switch to that branch.</li>
+          <li>Code and commit work</li>
+          <li>Pull origin main/master to local main/master</li>
+            <ul>
+              <li>Switch back to master branch</li>
+              <li>Terminal: <span class="code">Git pull origin main</span></li>
+            </ul>
+          <li>Merge local feature/dev into local main/master branch. Test code with most up to date version from origin main.</li>
+          <li>Push local main to origin main</li>
+        </ol>
+      </section>
+
+      <section id='section6'>
+        <h2>Other Git commands, tips, and shortcuts</h2>
+        <ul>
+          <li>Terminal: <span class="code">git status</span></li>
+            <ul>
+              <li>This tells you what's currently happening in the repository</li>
+            </ul>
+          <li><span class="code">git commit -am "message"</span>. This adds all files and commits changes in one command.</li>
+          <li><span class="code">git log</span> shows all commits and commit messages. If you have a lot of commits, use up/down buttons to scroll, then type <span class="code">Q</span> to return to command line.</li>
+          <li><span class="code">git reset --hard (commit hash code)</span> will revert back to a previous commit.</li>
+          <li><span class="code">git reset --hard origin/master</span> will revert back to the version on github.</li>
+          <li><span class="code">git reset</span> will unstage all staged files ready for a commit</li>
+          <li><span class="code">git reset (file path)</span> will unstage an individual file ready for a commit.</li>
+          <li><span class="code">git remote -v</span> shows you the remote repository url location.</li>
+          <li><span class="code">git remote set-url origin (new url here)</span> will change the remote url in git. This is good if you happen to rename a github repository.</li>
+        </ul>
+      </section>
+
+      <section id='section7'>
+        <h2>Vim Editor</h2>
+        <p>Sometimes git opens something called a vim text editor. This happens if you don't add a message to a commit, or during merges. Here are some useful commands:</p>
+        <ul>
+          <li>Type <span class="code">i</span>. This is insert mode which allows you to edit the file you are now in.</li>
+          <li>Write your commit message on the first line if need be.</li>
+          <li>Hit <span class="code">esc</span> button to return to normal mode.</li>
+          <li>To save and quit, type <span class="code">:wq</span> aka write and quit.</li>
+          <li>Hit <span class="code">Enter</span> to return to normal Terminal window.</li>
+        </ul>
+      </section>
+
+      <section id='section8'>
+        <h2>Github Specifics</h2>
+        <h3>Forking</h3>
+        <ol>
+          <li>You can <em>fork</em> someone else's repository and it creates a copy in your github account.</li>
+          <li>You can make changes and submit a pull request to the original owner of the code to possibly merge your changes with theirs if they approve. This is a good way to collaborate on projects.</li>
+        </ol>
+        <h3>Github Pages</h3>
+        <ol>
+          <li>You can host static web pages on Github by creating and pushing to a branch called gh-pages.</li>
+          <li>Terminal: <span class="code">git branch gh-pages</span></li>
+          <li>Terminal: <span class="code">git push origin gh-pages</span></li>
+          <li>Your page is now hosted at: <span class="code">https://chriskorsak.github.io/&ltdirectoryname&gt</span></li>
+        </ol>
+      </section>
+
+      <section id='section9'>
+        <h2>Git Ignore</h2>
+        <p>Some files in a project don't need to be tracked and commited. Create a gitignore file and specify which files you don't want to track.</p>
+        <ol>
+          <li>Create gitignore file in root of project directory. Terminal: <span class="code">touch .gitignore</span></li>
+          <li>Open this file and simply add the name of the file you want git to ignore on a line.</li>
+          <li>Refer to <a href='https://github.com/chriskorsak/cs50web-git-workflow'>this repository</a> for an actual example</li>
+        </ol>
+      </section>
+
+    </main>
   </body>
 </html>
