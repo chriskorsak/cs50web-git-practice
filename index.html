@@ -25,28 +25,30 @@
     <h1>Git Workflow</h1>
     <h2>Starting a Project on Github</h2>
     <ol>
-      <li>Create remote repository on Github</li>
-      <li>Navigate to where you want to clone github directory on your local computer. Terminal: <span class="code">git clone (url of repository)</span></li>
-      <li>Create or update project files on local computer (html, css, js, etc..)</li>
-      <li>Terminal: <span class="code">git add (name of project file)</span></li>
-      <li>Terminal: <span class="code">git commit -m "short message here detailing work you've done on files"</span></li>
-      <li>Terminal: <span class="code">git push</span></li>
+      <li>Create remote repository on Github.com</li>
+      <li>In Terminal, navigate to a directory on your computer where you want to clone the github directory. Terminal: <span class="code">git clone (url of repository)</span></li>
+      
     </ol>
 
     <h2>Starting a Project on Your Local Computer</h2>
     <ol>
       <li>Navigate to location on computer where you want to create project.</li>
-      <li>Terminal: <span class="code">mkdir (project name)</span></li>
-      <li>Terminal: <span class="code">cd (project name)</span></li>
-      <li>Terminal: <span class="code">git init</span></li>
-      <li>Create project files on local computer (html, css, js, etc..)</li>
-      <li>Terminal: <span class="code">git add (name of project file)</span></li>
+      <li>Create directory in Terminal: <span class="code">mkdir (project name)</span></li>
+      <li>Change to project directory in Terminal: <span class="code">cd (project name)</span></li>
+      <li>Initialize a git local git repository. Terminal: <span class="code">git init</span></li>
+    </ol>
+
+    <h2>Adding and removing files, commiting, pushing and pulling files</h2>
+    <ul>
+      <li>Add file to staging. Terminal: <span class="code">git add (name of file)</span></li>
+      <li>Add all files with specific extension to staging (ex. all html files). Terminal: <span class="code">git add *.html</span></li>
+      <li>Add all files to staging. Terminal: <span class="code">git add .</span> </li>
+      <li>Remove file from staging. Terminal: <span class="code">git restore --staged (name of file)  </span></li>
       <li>Terminal: <span class="code">git commit -m "short message here detailing work you've done on files"</span></li>
       <li>Create remote repository on Github</li>
       <li>Terminal: <span class="code">git remote add origin (url of repository)</span></li>
       <li>Terminal: <span class="code">git push origin master</span> (master/main/gh-pages, whatever the branch your pushing to is called)</li>
-    </ol>
-
+    </ul>
     <h2>Git Pull -download latest remote changes to local machine</h2>
     <ol>
       <li>Terminal: <span class="code">git pull</span></li>
