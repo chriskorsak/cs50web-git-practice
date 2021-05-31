@@ -45,10 +45,10 @@
       <li>Add all altered files to staging. Terminal: <span class="code">git add .</span> </li>
       <li>Remove file from staging. Terminal: <span class="code">git restore --staged &ltname of file&gt</span></li>
       <li>Discard changes to a file. Terminal: <span class="code">git restore &ltname of file&gt</span></li>
-      <li>Terminal: <span class="code">git commit -m "short message here detailing work you've done on files"</span></li>
-      <li>Terminal: <span class="code">git remote add origin (url of repository)</span></li>
-      <li>Terminal: <span class="code">git push origin master</span> (master/main/gh-pages, whatever the branch your pushing to is called)</li>
-      <li>Terminal: <span class="code">git pull</span></li>
+      <li>Commit your changes. Terminal: <span class="code">git commit -m "short message here detailing work you've done on files"</span></li>
+      <li>Terminal: <span class="code">git remote add origin &lturl of repository&gt</span></li>
+      <li>Terminal: <span class="code">git push origin master</span> (master/main/gh-pages, whatever the branch you'r e pushing to is called)</li>
+      <li>Pull the latest version from github. Terminal: <span class="code">git pull</span></li>
     </ul>
 
     <h2>Merge Conflicts</h2>
@@ -75,15 +75,15 @@
 
     <h2>Branching</h2>
     <ol>
-      <li><span class="code">git branch</span> tells you what branch you are on.</li>
-      <li><span class="code">git branch (new branch name)</span> creates a new branch.</li>
-      <li><span class="code">git checkout -b (new branch name)</span> creates and switches to a new branch</li>
-      <li><span class="code">git checkout ( branch name)</span> switches to a different branch</li>
-      <li><span class="code">git merge (branch name)</span> merges branches. The branch you are currently on will be the one you introduce code into.</li>
-      <li><span class="code">git branch -d (branch name) will delete an unused branch.</span></li>
+      <li><span class="code">git branch</span> tells you which branch you're on.</li>
+      <li><span class="code">git branch &ltnew branch name&gt</span> creates a new branch.</li>
+      <li><span class="code">git checkout -b &ltnew branch name&gt</span> creates and switches to a new branch</li>
+      <li><span class="code">git checkout &ltbranch name&gt</span> switches to a different branch</li>
+      <li><span class="code">git merge &ltbranch name&gt</span> merges branches. The branch you are currently on will be the one you introduce code into.</li>
+      <li><span class="code">git branch -d &ltbranch name&gt will delete an unused branch.</span></li>
     </ol>
 
-    <p>Working on a feature branch instead of the main (aka master) branch is a good idea. After you have an initial commit on the main/master branch, you can create a feature/develop branch. Work on that branch, then merge into the main/master branch.</p>
+    <p>Working on a feature branch instead of the main (aka master) branch is good practice. After you have an initial commit on the main/master branch, you can create a feature/develop branch. Work on that branch, then merge into the main/master branch. This can be a good idea even if you're working solo.</p>
 
     <h3>Sample Git Team Workflow</h3>
     <ol>
@@ -115,6 +115,16 @@
       <li><span class="code">git reset (file path)</span> will unstage an individual file ready for a commit.</li>
       <li><span class="code">git remote -v</span> shows you the remote repository url location.</li>
       <li><span class="code">git remote set-url origin (new url here)</span> will change the remote url in git. This is good if you happen to rename a github repository.</li>
+    </ul>
+
+    <h2>Vim Editor</h2>
+    <p>Sometimes git opens something called a vim text editor. This happens if you don't add a message to a commit, or during merges. Here are some useful commands:</p>
+    <ul>
+      <li>Type <span class="code">i</span>. This is insert mode which allows you to edit the file you are now in.</li>
+      <li>Write your commit message on the first line if need be.</li>
+      <li>Hit <span class="code">esc</span> button to return to normal mode.</li>
+      <li>To save and quit, type <span class="code">:wq</span> aka write and quit.</li>
+      <li>Hit <span class="code">Enter</span> to return to normal Terminal window.</li>
     </ul>
 
     <h2>Github Specifics</h2>
