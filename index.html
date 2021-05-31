@@ -26,33 +26,30 @@
     <h2>Starting a Project on Github</h2>
     <ol>
       <li>Create remote repository on Github.com</li>
-      <li>In Terminal, navigate to a directory on your computer where you want to clone the github directory. Terminal: <span class="code">git clone (url of repository)</span></li>
+      <li>In Terminal, navigate to a directory on your computer where you want to clone the github directory. Terminal: <span class="code">git clone &lturl of repository&gt</span></li>
       
     </ol>
 
     <h2>Starting a Project on Your Local Computer</h2>
     <ol>
       <li>Navigate to location on computer where you want to create project.</li>
-      <li>Create directory in Terminal: <span class="code">mkdir (project name)</span></li>
-      <li>Change to project directory in Terminal: <span class="code">cd (project name)</span></li>
+      <li>Create directory in Terminal: <span class="code">mkdir &ltproject name&gt</span></li>
+      <li>Change to project directory in Terminal: <span class="code">cd &ltproject name&gt</span></li>
       <li>Initialize a git local git repository. Terminal: <span class="code">git init</span></li>
     </ol>
 
-    <h2>Adding and removing files, commiting, pushing and pulling files</h2>
+    <h2>Adding and removing files, discarding changes, commiting, pushing and pulling files</h2>
     <ul>
-      <li>Add file to staging. Terminal: <span class="code">git add (name of file)</span></li>
-      <li>Add all files with specific extension to staging (ex. all html files). Terminal: <span class="code">git add *.html</span></li>
-      <li>Add all files to staging. Terminal: <span class="code">git add .</span> </li>
-      <li>Remove file from staging. Terminal: <span class="code">git restore --staged (name of file)  </span></li>
+      <li>Add altered file to staging. Terminal: <span class="code">git add &ltname of file&gt</span></li>
+      <li>Add all altered files with specific extension to staging (ex. all html files). Terminal: <span class="code">git add *.html</span></li>
+      <li>Add all altered files to staging. Terminal: <span class="code">git add .</span> </li>
+      <li>Remove file from staging. Terminal: <span class="code">git restore --staged &ltname of file&gt</span></li>
+      <li>Discard changes to a file. Terminal: <span class="code">git restore &ltname of file&gt</span></li>
       <li>Terminal: <span class="code">git commit -m "short message here detailing work you've done on files"</span></li>
-      <li>Create remote repository on Github</li>
       <li>Terminal: <span class="code">git remote add origin (url of repository)</span></li>
       <li>Terminal: <span class="code">git push origin master</span> (master/main/gh-pages, whatever the branch your pushing to is called)</li>
-    </ul>
-    <h2>Git Pull -download latest remote changes to local machine</h2>
-    <ol>
       <li>Terminal: <span class="code">git pull</span></li>
-    </ol>
+    </ul>
 
     <h2>Merge Conflicts</h2>
     <p>When pulling or pushing changes, it's possible to get a merge conflict if multiple people are working on the same file, or when mergining branches.</p>
