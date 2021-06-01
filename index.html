@@ -120,8 +120,8 @@
             </ul>
           <li><span class="code">git commit -am "message"</span>. This adds all files and commits changes in one command.</li>
           <li><span class="code">git log</span> shows all commits and commit messages. If you have a lot of commits, use up/down buttons to scroll, then type <span class="code">Q</span> to return to command line.</li>
-          <li><span class="code">git reset --hard (commit hash code)</span> will revert back to a previous commit.</li>
-          <li><span class="code">git reset --hard origin/master</span> will revert back to the version on github.</li>
+          <li><span class="code">git revert</span> creates a new commit that removes the work of a specific commit. This is good in that it doesn't alter the commit history.</li>
+          <li><span class="code">git reset</span> rolls back to a previous state or commit. This is not a good idea if you have already pushed your commit(s) to a remote repository.</li>
           <li><span class="code">git remote -v</span> shows you the remote repository url location.</li>
           <li><span class="code">git remote set-url origin (new url here)</span> will change the remote url in git. This is good if you happen to rename a github repository.</li>
         </ul>
