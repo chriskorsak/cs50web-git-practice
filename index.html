@@ -2,23 +2,7 @@
 <html lang="en">
   <head>
     <title>Git Workflow</title>
-
-    <style>
-      .code {
-        font-family: monospace;
-        font-weight: bold;
-      }
-
-      body {
-        margin: 2%;
-      }
-      h1,
-      h2,
-      h3 {
-        font-family: Helvetica, sans-serif;
-      }
-    </style>
-
+    <link rel='stylesheet' href='styles.css'>
   </head>
   <body>
     <header>
@@ -65,11 +49,12 @@
           <li>Add all altered files with specific extension to staging (ex. all html files). Terminal: <span class="code">git add *.html</span></li>
           <li>Add all altered files to staging. Terminal: <span class="code">git add .</span> </li>
           <li>Remove file from staging. Terminal: <span class="code">git restore --staged &ltname of file&gt</span></li>
+          <li>Remove all files from staging. Terminal: <span class="code">git restore --staged .</span></li>
           <li>Discard changes to a file. Terminal: <span class="code">git restore &ltname of file&gt</span></li>
           <li>Commit your changes. Terminal: <span class="code">git commit -m "short message here detailing work you've done on files"</span></li>
           <li>Terminal: <span class="code">git remote add origin &lturl of repository&gt</span></li>
           <li>Terminal: <span class="code">git push origin master</span> (master/main/gh-pages, whatever the branch you'r e pushing to is called)</li>
-          <li>Pull the latest version from github. Terminal: <span class="code">git pull</span></li>
+          <li>Pull the latest version of project from github. Terminal: <span class="code">git pull</span></li>
         </ul>
       </section>
 
@@ -137,8 +122,6 @@
           <li><span class="code">git log</span> shows all commits and commit messages. If you have a lot of commits, use up/down buttons to scroll, then type <span class="code">Q</span> to return to command line.</li>
           <li><span class="code">git reset --hard (commit hash code)</span> will revert back to a previous commit.</li>
           <li><span class="code">git reset --hard origin/master</span> will revert back to the version on github.</li>
-          <li><span class="code">git reset</span> will unstage all staged files ready for a commit</li>
-          <li><span class="code">git reset (file path)</span> will unstage an individual file ready for a commit.</li>
           <li><span class="code">git remote -v</span> shows you the remote repository url location.</li>
           <li><span class="code">git remote set-url origin (new url here)</span> will change the remote url in git. This is good if you happen to rename a github repository.</li>
         </ul>
@@ -179,6 +162,7 @@
           <li>Create gitignore file in root of project directory. Terminal: <span class="code">touch .gitignore</span></li>
           <li>Open this file and simply add the name of the file you want git to ignore on a line.</li>
           <li>Refer to <a href='https://github.com/chriskorsak/cs50web-git-workflow'>this repository</a> for an actual example</li>
+          <li>You can also ignore entire folders with .gitignore. For example, ignore a directory called dir1 by adding <span class="code">/dir1</span> to a line in .gitignore. Or, for example, ignore all .txt files in project by adding <span class="code">*.txt</span> to .gitignore.</li>
         </ol>
       </section>
 
