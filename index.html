@@ -48,6 +48,7 @@
           <li>Add altered file to staging. Terminal: <span class="code">git add &ltname of file&gt</span></li>
           <li>Add all altered files with specific extension to staging (ex. all html files). Terminal: <span class="code">git add *.html</span></li>
           <li>Add all altered files to staging. Terminal: <span class="code">git add .</span> </li>
+          <li>Add portion of a single file (a patch) <span class="code">git add &ltname of file&gt -p</span></li>
           <li>Remove file from staging. Terminal: <span class="code">git restore --staged &ltname of file&gt</span></li>
           <li>Remove all files from staging. Terminal: <span class="code">git restore --staged .</span></li>
           <li>Discard changes to a file. Terminal: <span class="code">git restore &ltname of file&gt</span></li>
@@ -60,7 +61,9 @@
 
       <section id='section4'>
         <h2>Merge Conflicts</h2>
-        <p>When pulling or pushing changes, it's possible to get a merge conflict if multiple people are working on the same file, or when mergining branches.</p>
+        <p>When pulling or pushing changes, it's possible to get a merge conflict if multiple people are working on the same file, or when merging branches.</p>
+        <p>If you don't have time to fix merge, you can undo the merge for the time being: <span class="code">git merge --abort</span></p>
+        <h4>To fix a merge conflict:</h4>
         <ol>
           <li>Go to file with merge conflict and fix what's inside arrows.</li>
           <li>Between head and equals signs are your local changes</li>
