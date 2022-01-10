@@ -93,7 +93,8 @@
           <li><span class="code">git checkout -b &ltnew branch name&gt</span> creates and switches to a new branch</li>
           <li><span class="code">git checkout &ltbranch name&gt</span> switches to a different branch</li>
           <li><span class="code">git merge &ltbranch name&gt</span> merges branches. The branch you are currently on will be the one you introduce code into from the branch specified in this command.</li>
-          <li><span class="code">git branch -d &ltbranch name&gt</span> will delete an unused branch.</li>
+          <li><span class="code">git branch -d &ltbranch name&gt</span> will delete a local branch. You can't be on the branch you want to delete.</li>
+          <li><span class="code">git push &ltremote_name ex. origin&gt -d &ltremote_branch_name&gt</span> will delete a remote branch.</li>
         </ol>
 
         <p>Working on a feature branch instead of the main (aka master) branch is good practice. After you have an initial commit on the main/master branch, you can create a feature/develop branch. Work on that branch, then merge into the main/master branch. This can be a good idea even if you're working solo.</p>
