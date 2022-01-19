@@ -54,7 +54,7 @@
           <li>Discard changes to a file. Terminal: <span class="code">git restore &ltname of file&gt</span></li>
           <li>Commit your changes. Terminal: <span class="code">git commit -m "short message here detailing work you've done on files"</span></li>
           <li>Terminal: <span class="code">git remote add origin &lturl of repository&gt</span></li>
-          <li>Terminal: <span class="code">git push origin master</span> (master/main/gh-pages, whatever the branch you'r e pushing to is called)</li>
+          <li>Terminal: <span class="code">git push -u origin master</span> (master/main/gh-pages, whatever the branch you'r e pushing to is called)</li>
           <li>Pull the latest version of project from github. Terminal: <span class="code">git pull</span></li>
         </ul>
       </section>
@@ -88,7 +88,7 @@
       <section id='section5'>
         <h2>Branching</h2>
         <ol>
-          <li><span class="code">git branch</span> tells you which branch you're on.</li>
+          <li><span class="code">git branch</span> tells you which local branch you're on.</li>
           <li><span class="code">git branch &ltnew branch name&gt</span> creates a new branch.</li>
           <li><span class="code">git checkout -b &ltnew branch name&gt</span> creates and switches to a new branch</li>
           <li><span class="code">git checkout &ltbranch name&gt</span> switches to a different branch</li>
@@ -96,8 +96,14 @@
           <li><span class="code">git branch -d &ltbranch name&gt</span> will delete a local branch. You can't be on the branch you want to delete.</li>
           <li><span class="code">git push &ltremote_name ex. origin&gt -d &ltremote_branch_name&gt</span> will delete a remote branch.</li>
         </ol>
-
         <p>Working on a feature branch instead of the main (aka master) branch is good practice. After you have an initial commit on the main/master branch, you can create a feature/develop branch. Work on that branch, then merge into the main/master branch. This can be a good idea even if you're working solo.</p>
+        <h3>Git Fetch</h3>
+        <ol>
+          <li><span class="code">git fetch &ltremote repo&gt</span> will download all remote branches, commits, etc, but will not merge with your local branches.</li>
+          <li><span class="code">git branch -a</span> lists all branches, local and remote.</li>
+          <li><span class="code">git branch -r</span> lists only remote branches.</li>
+          <li><span class="code">git checkout &ltremote branch name&gt</span> allows you to create a local copy of remote branch on your machine so you can explore branch. This is good if other team-members want you to review their feature branch.</li>
+        </ol>
 
         <h3>Sample Git Team Workflow</h3>
         <ol>
@@ -124,7 +130,8 @@
             </ul>
           <li><span class="code">git commit -am "message"</span>. This adds all files and commits changes in one command.</li>
           <li><span class="code">git log</span> shows all commits and commit messages. If you have a lot of commits, use up/down buttons to scroll, then type <span class="code">Q</span> to return to command line.</li>
-          <li><span class="code">git revert</span> creates a new commit that removes the work of a specific commit. This is good in that it doesn't alter the commit history.</li>
+          <li><span class="code">git log --oneline</span> each commit takes up one line (easy to scan).</li>
+          <li><span class="code">git revert &ltcommit hash&gt</span> creates a new commit that removes the work of a specific commit. This is good in that it doesn't alter the commit history.</li>
           <li><span class="code">git reset</span> rolls back to a previous state or commit. This is not a good idea if you have already pushed your commit(s) to a remote repository.</li>
           <li><span class="code">git remote -v</span> shows you the remote repository url location.</li>
           <li><span class="code">git remote set-url origin (new url here)</span> will change the remote url in git. This is good if you happen to rename a github repository.</li>
