@@ -9,21 +9,34 @@
       <h1>Git Workflow</h1>
       <nav>
         <ul>
-          <li><a href="#section1">Start project on Github</a></li>
-          <li><a href="#section2">Start project on local</a></li>
-          <li><a href="#section3">Basic commands</a></li>
-          <li><a href="#section4">Merge conflicts</a></li>
-          <li><a href="#section5">Branching</a></li>
-          <li><a href="#section6">Other Git commands, tips, and shortcuts</a></li>
-          <li><a href="#section7">Vim editor</a></li>
-          <li><a href="#section8">Github specifics</a></li>
-          <li><a href="#section9">Git Ignore</a></li>
+          <li><a href="#git-config">Git Configuration</a></li>
+          <li><a href="#start-project-github">Start project on Github</a></li>
+          <li><a href="#start-project-local">Start project on local</a></li>
+          <li><a href="#basic-commands">Basic commands</a></li>
+          <li><a href="#merge-conflicts">Merge conflicts</a></li>
+          <li><a href="#branching">Branching</a></li>
+          <li><a href="#other">Other Git commands, tips, and shortcuts</a></li>
+          <li><a href="#vim">Vim editor</a></li>
+          <li><a href="#github">Github specifics</a></li>
+          <li><a href="#git-ignore">Git Ignore</a></li>
+          <li><a href="#delete-remote-branch">Delete Remote Branch After Pull Request</a></li>
+          <li><a href="#git-stash">Git Stash</a></li>
+          <li><a href="#local-out-of-sync">If Local Gets Out Of Sync With Remote</a></li>
+          <li><a href="#interactive-rebase">Interactive Rebase</a></li>
         </ul>
       </nav>
     </header>
 
     <main>
-      <section id='section1'>
+      <section id="git-config">
+        <h2>Git Configuration</h2>
+        <p>You need to configure your machine with your name and email so you are associated with your commits.</p> 
+        <ul>
+          <li><span class="code">git config --global user.name "First Last"</span></li>
+          <li><span class="code">git config --global user.email "email-address@gmail.com"</span></li>
+        </ul>  
+      </section>
+      <section id='start-project-github'>
         <h2>Starting a Project on Github</h2>
         <ol>
           <li>Create remote repository on Github.com</li>
@@ -31,7 +44,7 @@
         </ol>
       </section>
 
-      <section id='section2'>
+      <section id='start-project-local'>
         <h2>Starting a Project on Your Local Computer</h2>
         <ol>
           <li>Navigate to location on computer where you want to create project.</li>
@@ -41,7 +54,7 @@
         </ol>
       </section>
 
-      <section id='section3'>
+      <section id='basic-commands'>
         <h2>Basic Commands</h2>
         <h3>Adding and removing files, discarding changes, commiting, pushing and pulling files</h3>
         <ul>
@@ -59,7 +72,7 @@
         </ul>
       </section>
 
-      <section id='section4'>
+      <section id='merge-conflicts'>
         <h2>Merge Conflicts</h2>
         <p>When pulling or pushing changes, it's possible to get a merge conflict if multiple people are working on the same file, or when merging branches.</p>
         <p>If you don't have time to fix merge, you can undo the merge for the time being: <span class="code">git merge --abort</span></p>
@@ -85,7 +98,7 @@
         </pre>
     </section>
 
-      <section id='section5'>
+      <section id='branching'>
         <h2>Branching</h2>
         <ol>
           <li><span class="code">git branch</span> tells you which local branch you're on.</li>
@@ -121,7 +134,7 @@
         </ol>
       </section>
 
-      <section id='section6'>
+      <section id='other'>
         <h2>Other Git commands, tips, and shortcuts</h2>
         <ul>
           <li>Terminal: <span class="code">git status</span></li>
@@ -138,7 +151,7 @@
         </ul>
       </section>
 
-      <section id='section7'>
+      <section id='vim'>
         <h2>Vim Editor</h2>
         <p>Sometimes git opens something called a vim text editor. This happens if you don't add a message to a commit, or during merges. Here are some useful commands:</p>
         <ul>
@@ -148,9 +161,10 @@
           <li>To save and quit, type <span class="code">:wq</span> aka write and quit.</li>
           <li>Hit <span class="code">Enter</span> to return to normal Terminal window.</li>
         </ul>
+        <p>you can also open any file in VIM by typing vim <file name> in terminal. It then shows the file contents in terminal.</p>
       </section>
 
-      <section id='section8'>
+      <section id='github'>
         <h2>Github Specifics</h2>
         <h3>Forking</h3>
         <ol>
@@ -166,7 +180,7 @@
         </ol>
       </section>
 
-      <section id='section9'>
+      <section id='git-ignore'>
         <h2>Git Ignore</h2>
         <p>Some files in a project don't need to be tracked and commited. Create a gitignore file and specify which files you don't want to track.</p>
         <ol>
@@ -175,6 +189,34 @@
           <li>Refer to <a href='https://github.com/chriskorsak/cs50web-git-workflow'>this repository</a> for an actual example</li>
           <li>You can also ignore entire folders with .gitignore. For example, ignore a directory called dir1 by adding <span class="code">/dir1</span> to a line in .gitignore. Or, for example, ignore all .txt files in project by adding <span class="code">*.txt</span> to .gitignore.</li>
         </ol>
+      </section>
+
+      <section id="delete-remote-branch">
+        <h2>Deleting Branches After a Pull Request</h2>
+        <p>You can delete a feature branch after a successful pull request on github interface. However, if you run <span class="code">git branch -a</span> in terminal, there will still be a reference to that branch that was deleted. To get rid of this:
+          <span class="code">git remote prune origin --dry-run</span> (this shows you which branches would be 'pruned')<span class="code">git remote prune origin</span> (this actually removes the reference on your terminal branch list)</p>
+        <p>Conversely, you can delete a remote branch via git in terminal:<span class="code">git push -d origin/branch-name</span></p>
+      </section>
+
+      <section id="git-stash">
+        <h2>Git Stash & Git Stash Pop</h2>
+        <p>Git stash allows you to put all your changes 'off to the side' so you can change branches before committing. For example, let's say you made some changes but realized you were on the master branch and forgot to create a feature branch first. Ooops. Just run: git stash. Now, create a feature branch: <span class="code">git checkout -b new-feature-branch </span>s. Finally run: <span class="code">git stash pop</span>. This takes your stashed files and adds them to your new feature branch. Now you can commit  the changes on your feature branch.</p>
+      </section>
+
+      <section id="local-out-of-sync">
+        <h2>local branch gets out of sync with remote</h2>
+        <p>reset to remote branch first, then you can cherry pick your own commits.</p>
+        <ul>
+          <li><span class="code">git reset --hard origin/branch</span></li>
+          <li><span class="code">git cherry-pick (commit hash)</span></li>
+        </ul>
+        <p>Why would this happen? Let's say you make a commit and push to remote, then a co-worker forgets to first pull on same branch, and then force pushes their commit. Your commit is now 'kicked off' the branch. When you pull changes, you will probably get a merge conflict. Instead, reset your local branch with the remote branch, then cherry pick your commit that was 'kicked off' the branch. Now you can commit and push to remote.</p>
+      </section>
+
+      <section id="interactive-rebase">
+        <h2>Interactive Rebase</h2>
+        <span class="code">git rebase -i (commit hash)</span>
+        <p>This allows you to edit commit messages, squash multiple commits into one, delete a commit, many other things. different than <span class="code">git revert (commit hash)</span>, which creates another commit that tells you deleted a previous commit. Don't rebase with commits already pushed to remote or could cause a real headache.</p>
       </section>
 
     </main>
