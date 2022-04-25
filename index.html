@@ -217,12 +217,18 @@
       </section>
 
       <section id="git-stash">
-        <h2>Git Stash & Git Stash Pop</h2>
-        <p>Git stash allows you to put all your changes 'off to the side' so you can change branches before committing. For example, let's say you made some changes but realized you were on the master branch and forgot to create a feature branch first. Ooops. Just run: git stash. Now, create a feature branch: <span class="code">git checkout -b new-feature-branch </span>s. Finally run: <span class="code">git stash pop</span>. This takes your stashed files and adds them to your new feature branch. Now you can commit  the changes on your feature branch.</p>
+        <h2>Git Stash</h2>
+        <p>Git stash allows you to put all your changes 'off to the side' so you can change branches or do other work before committing. For example, let's say you made some changes but realized you were on the master branch and forgot to create a feature branch first. Ooops. No problem, just stash your files, switch to a new branch, then apply stash.
+        <ul>
+          <li><span class="code">git stash</span> - put unstaged and staged files in stash. You can do this multiple times.</li>
+          <li><span class="code">git stash list</span> - displays what is in stash</li>
+          <li><span class="code">git stash apply (optional list # to only apply a certain stash item)</span> - apply stash items, but don't clear stash.</li>
+          <li><span class="code">git stash pop</span> - applies all stashed files and clears out the stash.</li>
+        </ul>  
       </section>
 
       <section id="local-out-of-sync">
-        <h2>local branch gets out of sync with remote</h2>
+        <h2>Local Branch Gets Out Of Sync With Remote</h2>
         <p>reset to remote branch first, then you can cherry pick your own commits.</p>
         <ul>
           <li><span class="code">git reset --hard origin/branch</span></li>
