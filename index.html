@@ -16,6 +16,7 @@
           <li><a href="#merge-conflicts">Merge conflicts</a></li>
           <li><a href="#branching">Branching</a></li>
           <li><a href="#other">Other Git commands, tips, and shortcuts</a></li>
+          <li><a href="#changing-history">Changing History</a></li>
           <li><a href="#vim">Vim editor</a></li>
           <li><a href="#github">Github specifics</a></li>
           <li><a href="#git-ignore">Git Ignore</a></li>
@@ -65,6 +66,7 @@
           <li>Remove file from staging. Terminal: <span class="code">git restore --staged &ltname of file&gt</span></li>
           <li>Remove all files from staging. Terminal: <span class="code">git restore --staged .</span></li>
           <li>Discard changes to a file. Terminal: <span class="code">git restore &ltname of file&gt</span></li>
+          <li>Rename or move a file Terminal <span class="code">git mv (filename) (new path/new file name)</span>. Put a new path if moving, leave out if renaming. This also stages the move or rename. Keep in mind when you move or rename a file using command line, the OS first deletes the old file, then creates a new file with that new name.</li>
           <li>Delete a file. Terminal: <span class="code">git rm (filename)</span>. This also stages the deletion.</li>
           <li>Commit your changes. Terminal: <span class="code">git commit -m "short message here detailing work you've done on files"</span></li>
           <li>Terminal: <span class="code">git remote add origin &lturl of repository&gt</span></li>
@@ -150,6 +152,12 @@
           <li><span class="code">git remote -v</span> shows you the remote repository url location.</li>
           <li><span class="code">git remote set-url origin (new url here)</span> will change the remote url in git. This is good if you happen to rename a github repository.</li>
         </ul>
+      </section>
+
+      <section id="changing-history">
+        <h2>Changing History</h2>
+        <h3>Ammending The Last Commit</h3>
+        <p>If you make a commit and and then immediately realize you need to change or edit something, you can make your edits, add files to staging, then type: <span class="code">git commit --amend</span>. This will open up VIM, where you can update the last commit message if you want.</p>
       </section>
 
       <section id='vim'>
