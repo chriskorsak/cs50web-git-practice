@@ -115,10 +115,10 @@
         <p>Working on a feature branch instead of the main (aka master) branch is good practice. After you have an initial commit on the main/master branch, you can create a feature/develop branch. Work on that branch, then merge into the main/master branch. This can be a good idea even if you're working solo.</p>
         <h3>Git Fetch</h3>
         <ol>
-          <li><span class="code">git fetch &ltremote repo&gt</span> will download all remote branches, commits, etc, but will not merge with your local branches.</li>
+          <li><span class="code">git fetch (remote repo)</span> will download all remote branches, commits, etc, but will not merge with your local branches.</li>
           <li><span class="code">git branch -a</span> lists all branches, local and remote.</li>
           <li><span class="code">git branch -r</span> lists only remote branches.</li>
-          <li><span class="code">git checkout &ltremote branch name&gt</span> allows you to create a local copy of remote branch on your machine so you can explore branch. This is good if other team-members want you to review their feature branch.</li>
+          <li><span class="code">git checkout (remote branch name)</span> allows you to create a local copy of a remote branch on your machine so you can explore the branch. This is good if other team-members want you to review their feature branch.</li>
         </ol>
 
         <h3>Sample Git Team Workflow</h3>
@@ -148,7 +148,7 @@
           <li><span class="code">git log</span> shows all commits and commit messages. If you have a lot of commits, use up/down buttons to scroll, then type <span class="code">Q</span> to return to command line.</li>
           <li><span class="code">git log --oneline</span> each commit takes up one line (easy to scan).</li>
           <li><span class="code">git revert &ltcommit hash&gt</span> creates a new commit that removes the work of a specific commit. This is good in that it doesn't alter the commit history.</li>
-          <li><span class="code">git reset</span> rolls back to a previous state or commit. This is not a good idea if you have already pushed your commit(s) to a remote repository.</li>
+          
           <li><span class="code">git remote -v</span> shows you the remote repository url location.</li>
           <li><span class="code">git remote set-url origin (new url here)</span> will change the remote url in git. This is good if you happen to rename a github repository.</li>
         </ul>
@@ -156,8 +156,18 @@
 
       <section id="changing-history">
         <h2>Changing History</h2>
-        <h3>Ammending The Last Commit</h3>
+        <h3>Amending The Last Commit</h3>
         <p>If you make a commit and and then immediately realize you need to change or edit something, you can make your edits, add files to staging, then type: <span class="code">git commit --amend</span>. This will open up VIM, where you can update the last commit message if you want.</p>
+        <h3>Resetting To An Earlier Commit</h3>
+        <p><span class="code">git reset (commit hash)</span> rolls back to a previous commit. It does not get rid of changes that come after this commit hash. Instead, the changes are now unstaged. You can make a new commit if you want. This is not a good idea if you have already pushed your commit(s) to a remote repository.</p>
+        <p><span class="code">git reset --hard (commit hash)</span> is more dangerous. It actually rolls back to a previous commit, AND deletes all changes that come after.</p>
+        <h3>Interactive Rebase</h3>
+        <ul>
+          <li><span class="code">git rebase -i (commit hash)</span> - Go back to specific commit</li>
+          <li><span class="code">git rebase -i HEAD~3</span> - Go back 3 commits</li> 
+          <li><span class="code">git rebase -i --root</span> - Go back to beginning</li>
+        </ul> 
+        <p>Interactive rebasing allows you to edit commit messages, reorder commits, squash multiple commits into one, delete a commit, many other things. different than <span class="code">git revert (commit hash)</span>, which creates another commit that tells you deleted a previous commit. Don't rebase with commits already pushed to remote or it could cause a real headache. Rebasing would be a good idea to clean up your local commits before pushing to a remote repo.</p>
       </section>
 
       <section id='vim'>
@@ -221,13 +231,6 @@
         </ul>
         <p>Why would this happen? Let's say you make a commit and push to remote, then a co-worker forgets to first pull on same branch, and then force pushes their commit. Your commit is now 'kicked off' the branch. When you pull changes, you will probably get a merge conflict. Instead, reset your local branch with the remote branch, then cherry pick your commit that was 'kicked off' the branch. Now you can commit and push to remote.</p>
       </section>
-
-      <section id="interactive-rebase">
-        <h2>Interactive Rebase</h2>
-        <span class="code">git rebase -i (commit hash)</span>
-        <p>This allows you to edit commit messages, squash multiple commits into one, delete a commit, many other things. different than <span class="code">git revert (commit hash)</span>, which creates another commit that tells you deleted a previous commit. Don't rebase with commits already pushed to remote or could cause a real headache.</p>
-      </section>
-
     </main>
   </body>
 </html>
