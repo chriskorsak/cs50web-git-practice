@@ -5,238 +5,239 @@
     <link rel='stylesheet' href='styles.css'>
   </head>
   <body>
-    <header>
-      <h1>Git Workflow</h1>
-      <nav>
-        <ul>
-          <li><a href="#git-config">Git Configuration</a></li>
-          <li><a href="#start-project-github">Start project on Github</a></li>
-          <li><a href="#start-project-local">Start project on local</a></li>
-          <li><a href="#basic-commands">Basic commands</a></li>
-          <li><a href="#merge-conflicts">Merge conflicts</a></li>
-          <li><a href="#branching">Branching</a></li>
-          <li><a href="#other">Other Git commands, tips, and shortcuts</a></li>
-          <li><a href="#changing-history">Changing History</a></li>
-          <li><a href="#vim">Vim editor</a></li>
-          <li><a href="#github">Github specifics</a></li>
-          <li><a href="#git-ignore">Git Ignore</a></li>
-          <li><a href="#delete-remote-branch">Delete Remote Branch After Pull Request</a></li>
-          <li><a href="#git-stash">Git Stash</a></li>
-          <li><a href="#local-out-of-sync">If Local Gets Out Of Sync With Remote</a></li>
-        </ul>
-      </nav>
-    </header>
+      <header>
+        <h1>Git Workflow</h1>
+        <nav>
+          <ul>
+            <li><a href="#git-config">Git Configuration</a></li>
+            <li><a href="#start-project-github">Start project on Github</a></li>
+            <li><a href="#start-project-local">Start project on local</a></li>
+            <li><a href="#basic-commands">Basic commands</a></li>
+            <li><a href="#merge-conflicts">Merge conflicts</a></li>
+            <li><a href="#branching">Branching</a></li>
+            <li><a href="#other">Other Git commands, tips, and shortcuts</a></li>
+            <li><a href="#changing-history">Changing History</a></li>
+            <li><a href="#vim">Vim editor</a></li>
+            <li><a href="#github">Github specifics</a></li>
+            <li><a href="#git-ignore">Git Ignore</a></li>
+            <li><a href="#delete-remote-branch">Delete Remote Branch After Pull Request</a></li>
+            <li><a href="#git-stash">Git Stash</a></li>
+            <li><a href="#local-out-of-sync">If Local Gets Out Of Sync With Remote</a></li>
+          </ul>
+        </nav>
+      </header>
+    <div class="container">
+      <main>
+        <section id="git-config">
+          <h2>Git Configuration</h2>
+          <p>You need to configure your machine with your name and email so you are associated with your commits.</p> 
+          <ul>
+            <li><code>git config --global user.name "First Last"</code></li>
+            <li><code>git config --global user.email "email-address@gmail.com"</code></li>
+          </ul>  
+        </section>
+        <section id='start-project-github'>
+          <h2>Starting a Project on Github</h2>
+          <ol>
+            <li>Create remote repository on Github.com</li>
+            <li>In Terminal, navigate to a directory on your computer where you want to clone the github directory. Terminal: <code>git clone &lturl of repository&gt</code></li>
+          </ol>
+        </section>
 
-    <main>
-      <section id="git-config">
-        <h2>Git Configuration</h2>
-        <p>You need to configure your machine with your name and email so you are associated with your commits.</p> 
-        <ul>
-          <li><span class="code">git config --global user.name "First Last"</span></li>
-          <li><span class="code">git config --global user.email "email-address@gmail.com"</span></li>
-        </ul>  
-      </section>
-      <section id='start-project-github'>
-        <h2>Starting a Project on Github</h2>
-        <ol>
-          <li>Create remote repository on Github.com</li>
-          <li>In Terminal, navigate to a directory on your computer where you want to clone the github directory. Terminal: <span class="code">git clone &lturl of repository&gt</span></li>
-        </ol>
-      </section>
+        <section id='start-project-local'>
+          <h2>Starting a Project on Your Local Computer</h2>
+          <ol>
+            <li>Navigate to location on computer where you want to create project.</li>
+            <li>Create directory in Terminal: <code>mkdir &ltproject name&gt</code></li>
+            <li>Change to project directory in Terminal: <code>cd &ltproject name&gt</code></li>
+            <li>Initialize a git local git repository. Terminal: <code>git init</code></li>
+          </ol>
+        </section>
 
-      <section id='start-project-local'>
-        <h2>Starting a Project on Your Local Computer</h2>
-        <ol>
-          <li>Navigate to location on computer where you want to create project.</li>
-          <li>Create directory in Terminal: <span class="code">mkdir &ltproject name&gt</span></li>
-          <li>Change to project directory in Terminal: <span class="code">cd &ltproject name&gt</span></li>
-          <li>Initialize a git local git repository. Terminal: <span class="code">git init</span></li>
-        </ol>
-      </section>
+        <section id='basic-commands'>
+          <h2>Basic Commands</h2>
+          <h3>Adding and removing files, discarding changes, committing, pushing and pulling files</h3>
+          <ul>
+            <li>Add altered file to staging. Terminal: <code>git add &ltname of file&gt</code></li>
+            <li>Add all altered files with specific extension to staging (ex. all html files). Terminal: <code>git add *.html</code></li>
+            <li>Add all altered files to staging. Terminal: <code>git add .</code> </li>
+            <li>Add portion of a single file (a patch) <code>git add &ltname of file&gt -p</code></li>
+            <li>Remove file from staging. Terminal: <code>git restore --staged &ltname of file&gt</code></li>
+            <li>Remove all files from staging. Terminal: <code>git restore --staged .</code></li>
+            <li>Discard changes to a file. Terminal: <code>git restore &ltname of file&gt</code></li>
+            <li>Rename or move a file Terminal <code>git mv (filename) (new path/new file name)</code>. Put a new path if moving, leave out if renaming. This also stages the move or rename. Keep in mind when you move or rename a file using command line, the OS first deletes the old file, then creates a new file with that new name.</li>
+            <li>Delete a file. Terminal: <code>git rm (filename)</code>. This also stages the deletion.</li>
+            <li>Commit your changes. Terminal: <code>git commit -m "short message here detailing work you've done on files"</code></li>
+            <li>Terminal: <code>git remote add origin &lturl of repository&gt</code></li>
+            <li>Terminal: <code>git push -u origin master</code> (master/main/gh-pages, whatever the branch you'r e pushing to is called)</li>
+            <li>Pull the latest version of project from github. Terminal: <code>git pull</code></li>
+            <li><code>git show (commit hash)</code> - shows the changes in a specific commit.</li>
+          </ul>
+        </section>
 
-      <section id='basic-commands'>
-        <h2>Basic Commands</h2>
-        <h3>Adding and removing files, discarding changes, commiting, pushing and pulling files</h3>
-        <ul>
-          <li>Add altered file to staging. Terminal: <span class="code">git add &ltname of file&gt</span></li>
-          <li>Add all altered files with specific extension to staging (ex. all html files). Terminal: <span class="code">git add *.html</span></li>
-          <li>Add all altered files to staging. Terminal: <span class="code">git add .</span> </li>
-          <li>Add portion of a single file (a patch) <span class="code">git add &ltname of file&gt -p</span></li>
-          <li>Remove file from staging. Terminal: <span class="code">git restore --staged &ltname of file&gt</span></li>
-          <li>Remove all files from staging. Terminal: <span class="code">git restore --staged .</span></li>
-          <li>Discard changes to a file. Terminal: <span class="code">git restore &ltname of file&gt</span></li>
-          <li>Rename or move a file Terminal <span class="code">git mv (filename) (new path/new file name)</span>. Put a new path if moving, leave out if renaming. This also stages the move or rename. Keep in mind when you move or rename a file using command line, the OS first deletes the old file, then creates a new file with that new name.</li>
-          <li>Delete a file. Terminal: <span class="code">git rm (filename)</span>. This also stages the deletion.</li>
-          <li>Commit your changes. Terminal: <span class="code">git commit -m "short message here detailing work you've done on files"</span></li>
-          <li>Terminal: <span class="code">git remote add origin &lturl of repository&gt</span></li>
-          <li>Terminal: <span class="code">git push -u origin master</span> (master/main/gh-pages, whatever the branch you'r e pushing to is called)</li>
-          <li>Pull the latest version of project from github. Terminal: <span class="code">git pull</span></li>
-          <li><span class="code">git show (commit hash)</span> - shows the changes in a specific commit.</li>
-        </ul>
-      </section>
-
-      <section id='merge-conflicts'>
-        <h2>Merge Conflicts</h2>
-        <p>When pulling or pushing changes, it's possible to get a merge conflict if multiple people are working on the same file, or when merging branches.</p>
-        <p>If you don't have time to fix merge, you can undo the merge for the time being: <span class="code">git merge --abort</span></p>
-        <h4>To fix a merge conflict:</h4>
-        <ol>
-          <li>Go to file with merge conflict and fix what's inside arrows.</li>
-          <li>Between head and equals signs are your local changes</li>
-          <li>Between equals sign and end arrows is remote version</li>
-          <li>Remove all arrows, equal sign, and commit hash, then save</li>
-          <li>Add file, commit, and push.</li>
-        </ol>
-        <h3>Example of merge conflict code:</h3>
-        <pre>
-          a = 1
-          <<<<< HEAD
-          b = 2
-          =====
-          b = 3
-          >>>>> 56782736387980937883
-          c = 3
-          d = 4
-          e = 5
-        </pre>
-    </section>
-
-      <section id='branching'>
-        <h2>Branching</h2>
-        <ol>
-          <li><span class="code">git branch</span> tells you which local branch you're on.</li>
-          <li><span class="code">git branch &ltnew branch name&gt</span> creates a new branch.</li>
-          <li><span class="code">git checkout -b &ltnew branch name&gt</span> creates and switches to a new branch</li>
-          <li><span class="code">git checkout &ltbranch name&gt</span> switches to a different branch</li>
-          <li><span class="code">git merge &ltbranch name&gt</span> merges branches. The branch you are currently on will be the one you introduce code into from the branch specified in this command.</li>
-          <li><span class="code">git branch -d &ltbranch name&gt</span> will delete a local branch. You can't be on the branch you want to delete.</li>
-          <li><span class="code">git push &ltremote_name ex. origin&gt -d &ltremote_branch_name&gt</span> will delete a remote branch.</li>
-        </ol>
-        <p>Working on a feature branch instead of the main (aka master) branch is good practice. After you have an initial commit on the main/master branch, you can create a feature/develop branch. Work on that branch, then merge into the main/master branch. This can be a good idea even if you're working solo.</p>
-        <h3>Git Fetch</h3>
-        <ol>
-          <li><span class="code">git fetch (remote repo)</span> will download all remote branches, commits, etc, but will not merge with your local branches.</li>
-          <li><span class="code">git branch -a</span> lists all branches, local and remote.</li>
-          <li><span class="code">git branch -r</span> lists only remote branches.</li>
-          <li><span class="code">git checkout (remote branch name)</span> allows you to create a local copy of a remote branch on your machine so you can explore the branch. This is good if other team-members want you to review their feature branch.</li>
-        </ol>
-
-        <h3>Sample Git Team Workflow</h3>
-        <ol>
-          <li>Setup github repository and clone to local machine</li>
-          <li>Make inital commit on main/master branch and push to remote repository</li>
-          <li>Create feature/dev branch and switch to that branch.</li>
-          <li>Code and commit work</li>
-          <li>Pull origin main/master to local main/master</li>
-            <ul>
-              <li>Switch back to master branch</li>
-              <li>Terminal: <span class="code">Git pull origin main</span></li>
-            </ul>
-          <li>Merge local feature/dev into local main/master branch. Test code with most up to date version from origin main.</li>
-          <li>Push local main to origin main</li>
-        </ol>
+        <section id='merge-conflicts'>
+          <h2>Merge Conflicts</h2>
+          <p>When pulling or pushing changes, it's possible to get a merge conflict if multiple people are working on the same file, or when merging branches.</p>
+          <p>If you don't have time to fix merge, you can undo the merge for the time being: <code>git merge --abort</code></p>
+          <h4>To fix a merge conflict:</h4>
+          <ol>
+            <li>Go to file with merge conflict and fix what's inside arrows.</li>
+            <li>Between head and equals signs are your local changes</li>
+            <li>Between equals sign and end arrows is remote version</li>
+            <li>Remove all arrows, equal sign, and commit hash, then save</li>
+            <li>Add file, commit, and push.</li>
+          </ol>
+          <h3>Example of merge conflict code:</h3>
+          <pre>
+            a = 1
+            <<<<< HEAD
+            b = 2
+            =====
+            b = 3
+            >>>>> 56782736387980937883
+            c = 3
+            d = 4
+            e = 5
+          </pre>
       </section>
 
-      <section id='other'>
-        <h2>Other Git commands, tips, and shortcuts</h2>
-        <ul>
-          <li>Terminal: <span class="code">git status</span></li>
-            <ul>
-              <li>This tells you what's currently happening in the repository</li>
-            </ul>
-          <li><span class="code">git commit -am "message"</span>. This adds all files and commits changes in one command.</li>
-          <li><span class="code">git log</span> shows all commits and commit messages. If you have a lot of commits, use up/down buttons to scroll, then type <span class="code">Q</span> to return to command line.</li>
-          <li><span class="code">git log --oneline</span> each commit takes up one line (easy to scan).</li>
-          <li><span class="code">git revert &ltcommit hash&gt</span> creates a new commit that removes the work of a specific commit. This is good in that it doesn't alter the commit history.</li>
-          
-          <li><span class="code">git remote -v</span> shows you the remote repository url location.</li>
-          <li><span class="code">git remote set-url origin (new url here)</span> will change the remote url in git. This is good if you happen to rename a github repository.</li>
-        </ul>
-      </section>
+        <section id='branching'>
+          <h2>Branching</h2>
+          <ol>
+            <li><code>git branch</code> tells you which local branch you're on.</li>
+            <li><code>git branch &ltnew branch name&gt</code> creates a new branch.</li>
+            <li><code>git checkout -b &ltnew branch name&gt</code> creates and switches to a new branch</li>
+            <li><code>git checkout &ltbranch name&gt</code> switches to a different branch</li>
+            <li><code>git merge &ltbranch name&gt</code> merges branches. The branch you are currently on will be the one you introduce code into from the branch specified in this command.</li>
+            <li><code>git branch -d &ltbranch name&gt</code> will delete a local branch. You can't be on the branch you want to delete.</li>
+            <li><code>git push &ltremote_name ex. origin&gt -d &ltremote_branch_name&gt</code> will delete a remote branch.</li>
+          </ol>
+          <p>Working on a feature branch instead of the main (aka master) branch is good practice. After you have an initial commit on the main/master branch, you can create a feature/develop branch. Work on that branch, then merge into the main/master branch. This can be a good idea even if you're working solo.</p>
+          <h3>Git Fetch</h3>
+          <ol>
+            <li><code>git fetch (remote repo)</code> will download all remote branches, commits, etc, but will not merge with your local branches.</li>
+            <li><code>git branch -a</code> lists all branches, local and remote.</li>
+            <li><code>git branch -r</code> lists only remote branches.</li>
+            <li><code>git checkout (remote branch name)</code> allows you to create a local copy of a remote branch on your machine so you can explore the branch. This is good if other team-members want you to review their feature branch.</li>
+          </ol>
 
-      <section id="changing-history">
-        <h2>Changing History</h2>
-        <h3>Amending The Last Commit</h3>
-        <p>If you make a commit and and then immediately realize you need to change or edit something, you can make your edits, add files to staging, then type: <span class="code">git commit --amend</span>. This will open up VIM, where you can update the last commit message if you want.</p>
-        <h3>Resetting To An Earlier Commit</h3>
-        <p><span class="code">git reset (commit hash)</span> rolls back to a previous commit. It does not get rid of changes that come after this commit hash. Instead, the changes are now unstaged. You can make a new commit if you want. This is not a good idea if you have already pushed your commit(s) to a remote repository.</p>
-        <p><span class="code">git reset --hard (commit hash)</span> is more dangerous. It actually rolls back to a previous commit, AND deletes all changes that come after.</p>
-        <h3>Interactive Rebase</h3>
-        <ul>
-          <li><span class="code">git rebase -i (commit hash)</span> - Go back to specific commit</li>
-          <li><span class="code">git rebase -i HEAD~3</span> - Go back 3 commits</li> 
-          <li><span class="code">git rebase -i --root</span> - Go back to beginning</li>
-        </ul> 
-        <p>Interactive rebasing allows you to edit commit messages, reorder commits, squash multiple commits into one, delete a commit, many other things. different than <span class="code">git revert (commit hash)</span>, which creates another commit that tells you deleted a previous commit. Don't rebase with commits already pushed to remote or it could cause a real headache. Rebasing would be a good idea to clean up your local commits before pushing to a remote repo.</p>
-      </section>
+          <h3>Sample Git Team Workflow</h3>
+          <ol>
+            <li>Setup github repository and clone to local machine</li>
+            <li>Make inital commit on main/master branch and push to remote repository</li>
+            <li>Create feature/dev branch and switch to that branch.</li>
+            <li>Code and commit work</li>
+            <li>Pull origin main/master to local main/master</li>
+              <ul>
+                <li>Switch back to master branch</li>
+                <li>Terminal: <code>Git pull origin main</code></li>
+              </ul>
+            <li>Merge local feature/dev into local main/master branch. Test code with most up to date version from origin main.</li>
+            <li>Push local main to origin main</li>
+          </ol>
+        </section>
 
-      <section id='vim'>
-        <h2>Vim Editor</h2>
-        <p>Sometimes git opens something called a vim text editor. This happens if you don't add a message to a commit, or during merges. Here are some useful commands:</p>
-        <ul>
-          <li>Type <span class="code">i</span>. This is insert mode which allows you to edit the file you are now in.</li>
-          <li>Write your commit message on the first line if need be.</li>
-          <li>Hit <span class="code">esc</span> button to return to normal mode.</li>
-          <li>To save and quit, type <span class="code">:wq</span> aka write and quit.</li>
-          <li>Hit <span class="code">Enter</span> to return to normal Terminal window.</li>
-        </ul>
-        <p>you can also open any file in VIM by typing vim <file name> in terminal. It then shows the file contents in terminal.</p>
-      </section>
+        <section id='other'>
+          <h2>Other Git commands, tips, and shortcuts</h2>
+          <ul>
+            <li>Terminal: <code>git status</code></li>
+              <ul>
+                <li>This tells you what's currently happening in the repository</li>
+              </ul>
+            <li><code>git commit -am "message"</code>. This adds all files and commits changes in one command.</li>
+            <li><code>git log</code> shows all commits and commit messages. If you have a lot of commits, use up/down buttons to scroll, then type <code>Q</code> to return to command line.</li>
+            <li><code>git log --oneline</code> each commit takes up one line (easy to scan).</li>
+            <li><code>git revert &ltcommit hash&gt</code> creates a new commit that removes the work of a specific commit. This is good in that it doesn't alter the commit history.</li>
+            
+            <li><code>git remote -v</code> shows you the remote repository url location.</li>
+            <li><code>git remote set-url origin (new url here)</code> will change the remote url in git. This is good if you happen to rename a github repository.</li>
+          </ul>
+        </section>
 
-      <section id='github'>
-        <h2>Github Specifics</h2>
-        <h3>Forking</h3>
-        <ol>
-          <li>You can <em>fork</em> someone else's repository and it creates a copy in your github account.</li>
-          <li>You can make changes and submit a pull request to the original owner of the code to possibly merge your changes with theirs if they approve. This is a good way to collaborate on projects.</li>
-        </ol>
-        <h3>Github Pages</h3>
-        <ol>
-          <li>You can host static web pages on Github by creating and pushing to a branch called gh-pages.</li>
-          <li>Terminal: <span class="code">git branch gh-pages</span></li>
-          <li>Terminal: <span class="code">git push origin gh-pages</span></li>
-          <li>Your page is now hosted at: <span class="code">https://chriskorsak.github.io/&ltdirectoryname&gt</span></li>
-        </ol>
-      </section>
+        <section id="changing-history">
+          <h2>Changing History</h2>
+          <h3>Amending The Last Commit</h3>
+          <p>If you make a commit and and then immediately realize you need to change or edit something, you can make your edits, add files to staging, then type: <code>git commit --amend</code>. This will open up VIM, where you can update the last commit message if you want.</p>
+          <h3>Resetting To An Earlier Commit</h3>
+          <p><code>git reset (commit hash)</code> rolls back to a previous commit. It does not get rid of changes that come after this commit hash. Instead, the changes are now unstaged. You can make a new commit if you want. This is not a good idea if you have already pushed your commit(s) to a remote repository.</p>
+          <p><code>git reset --hard (commit hash)</code> is more dangerous. It actually rolls back to a previous commit, AND deletes all changes that come after.</p>
+          <h3>Interactive Rebase</h3>
+          <ul>
+            <li><code>git rebase -i (commit hash)</code> - Go back to specific commit</li>
+            <li><code>git rebase -i HEAD~3</code> - Go back 3 commits</li> 
+            <li><code>git rebase -i --root</code> - Go back to beginning</li>
+          </ul> 
+          <p>Interactive rebasing allows you to edit commit messages, reorder commits, squash multiple commits into one, delete a commit, many other things. different than <code>git revert (commit hash)</code>, which creates another commit that tells you deleted a previous commit. Don't rebase with commits already pushed to remote or it could cause a real headache. Rebasing would be a good idea to clean up your local commits before pushing to a remote repo.</p>
+        </section>
 
-      <section id='git-ignore'>
-        <h2>Git Ignore</h2>
-        <p>Some files in a project don't need to be tracked and commited. Create a gitignore file and specify which files you don't want to track.</p>
-        <ol>
-          <li>Create gitignore file in root of project directory. Terminal: <span class="code">touch .gitignore</span></li>
-          <li>Open this file and simply add the name of the file you want git to ignore on a line.</li>
-          <li>Refer to <a href='https://github.com/chriskorsak/cs50web-git-workflow'>this repository</a> for an actual example</li>
-          <li>You can also ignore entire folders with .gitignore. For example, ignore a directory called dir1 by adding <span class="code">/dir1</span> to a line in .gitignore. Or, for example, ignore all .txt files in project by adding <span class="code">*.txt</span> to .gitignore.</li>
-        </ol>
-      </section>
+        <section id='vim'>
+          <h2>Vim Editor</h2>
+          <p>Sometimes git opens something called a vim text editor. This happens if you don't add a message to a commit, or during merges. Here are some useful commands:</p>
+          <ul>
+            <li>Type <code>i</code>. This is insert mode which allows you to edit the file you are now in.</li>
+            <li>Write your commit message on the first line if need be.</li>
+            <li>Hit <code>esc</code> button to return to normal mode.</li>
+            <li>To save and quit, type <code>:wq</code> aka write and quit.</li>
+            <li>Hit <code>Enter</code> to return to normal Terminal window.</li>
+          </ul>
+          <p>you can also open any file in VIM by typing vim <file name> in terminal. It then shows the file contents in terminal.</p>
+        </section>
 
-      <section id="delete-remote-branch">
-        <h2>Deleting Branches After a Pull Request</h2>
-        <p>You can delete a feature branch after a successful pull request on github interface. However, if you run <span class="code">git branch -a</span> in terminal, there will still be a reference to that branch that was deleted. To get rid of this:
-          <span class="code">git remote prune origin --dry-run</span> (this shows you which branches would be 'pruned')<span class="code">git remote prune origin</span> (this actually removes the reference on your terminal branch list)</p>
-        <p>Conversely, you can delete a remote branch via git in terminal:<span class="code">git push -d origin/branch-name</span></p>
-      </section>
+        <section id='github'>
+          <h2>Github Specifics</h2>
+          <h3>Forking</h3>
+          <ol>
+            <li>You can <em>fork</em> someone else's repository and it creates a copy in your github account.</li>
+            <li>You can make changes and submit a pull request to the original owner of the code to possibly merge your changes with theirs if they approve. This is a good way to collaborate on projects.</li>
+          </ol>
+          <h3>Github Pages</h3>
+          <ol>
+            <li>You can host static web pages on Github by creating and pushing to a branch called gh-pages.</li>
+            <li>Terminal: <code>git branch gh-pages</code></li>
+            <li>Terminal: <code>git push origin gh-pages</code></li>
+            <li>Your page is now hosted at: <code>https://chriskorsak.github.io/&ltdirectoryname&gt</code></li>
+          </ol>
+        </section>
 
-      <section id="git-stash">
-        <h2>Git Stash</h2>
-        <p>Git stash allows you to put all your changes 'off to the side' so you can change branches or do other work before committing. For example, let's say you made some changes but realized you were on the master branch and forgot to create a feature branch first. Ooops. No problem, just stash your files, switch to a new branch, then apply stash.
-        <ul>
-          <li><span class="code">git stash</span> - put unstaged and staged files in stash. You can do this multiple times.</li>
-          <li><span class="code">git stash list</span> - displays what is in stash</li>
-          <li><span class="code">git stash apply (optional list # to only apply a certain stash item)</span> - apply stash items, but don't clear stash.</li>
-          <li><span class="code">git stash pop</span> - applies all stashed files and clears out the stash.</li>
-        </ul>  
-      </section>
+        <section id='git-ignore'>
+          <h2>Git Ignore</h2>
+          <p>Some files in a project don't need to be tracked and commited. Create a gitignore file and specify which files you don't want to track.</p>
+          <ol>
+            <li>Create gitignore file in root of project directory. Terminal: <code>touch .gitignore</code></li>
+            <li>Open this file and simply add the name of the file you want git to ignore on a line.</li>
+            <li>Refer to <a href='https://github.com/chriskorsak/cs50web-git-workflow'>this repository</a> for an actual example</li>
+            <li>You can also ignore entire folders with .gitignore. For example, ignore a directory called dir1 by adding <code>/dir1</code> to a line in .gitignore. Or, for example, ignore all .txt files in project by adding <code>*.txt</code> to .gitignore.</li>
+          </ol>
+        </section>
 
-      <section id="local-out-of-sync">
-        <h2>Local Branch Gets Out Of Sync With Remote</h2>
-        <p>reset to remote branch first, then you can cherry pick your own commits.</p>
-        <ul>
-          <li><span class="code">git reset --hard origin/branch</span></li>
-          <li><span class="code">git cherry-pick (commit hash)</span></li>
-        </ul>
-        <p>Why would this happen? Let's say you make a commit and push to remote, then a co-worker forgets to first pull on same branch, and then force pushes their commit. Your commit is now 'kicked off' the branch. When you pull changes, you will probably get a merge conflict. Instead, reset your local branch with the remote branch, then cherry pick your commit that was 'kicked off' the branch. Now you can commit and push to remote.</p>
-      </section>
-    </main>
+        <section id="delete-remote-branch">
+          <h2>Deleting Branches After a Pull Request</h2>
+          <p>You can delete a feature branch after a successful pull request on github interface. However, if you run <code>git branch -a</code> in terminal, there will still be a reference to that branch that was deleted. To get rid of this:
+            <code>git remote prune origin --dry-run</code> (this shows you which branches would be 'pruned')<code>git remote prune origin</code> (this actually removes the reference on your terminal branch list)</p>
+          <p>Conversely, you can delete a remote branch via git in terminal:<code>git push -d origin/branch-name</code></p>
+        </section>
+
+        <section id="git-stash">
+          <h2>Git Stash</h2>
+          <p>Git stash allows you to put all your changes 'off to the side' so you can change branches or do other work before committing. For example, let's say you made some changes but realized you were on the master branch and forgot to create a feature branch first. Ooops. No problem, just stash your files, switch to a new branch, then apply stash.
+          <ul>
+            <li><code>git stash</code> - put unstaged and staged files in stash. You can do this multiple times.</li>
+            <li><code>git stash list</code> - displays what is in stash</li>
+            <li><code>git stash apply (optional list # to only apply a certain stash item)</code> - apply stash items, but don't clear stash.</li>
+            <li><code>git stash pop</code> - applies all stashed files and clears out the stash.</li>
+          </ul>  
+        </section>
+
+        <section id="local-out-of-sync">
+          <h2>Local Branch Gets Out Of Sync With Remote</h2>
+          <p>reset to remote branch first, then you can cherry pick your own commits.</p>
+          <ul>
+            <li><code>git reset --hard origin/branch</code></li>
+            <li><code>git cherry-pick (commit hash)</code></li>
+          </ul>
+          <p>Why would this happen? Let's say you make a commit and push to remote, then a co-worker forgets to first pull on same branch, and then force pushes their commit. Your commit is now 'kicked off' the branch. When you pull changes, you will probably get a merge conflict. Instead, reset your local branch with the remote branch, then cherry pick your commit that was 'kicked off' the branch. Now you can commit and push to remote.</p>
+        </section> 
+      </main>
+    </div>
   </body>
 </html>
