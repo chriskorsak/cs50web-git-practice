@@ -10,7 +10,6 @@
         <nav>
           <ul>
             <li><a href="#git-config">Git Configuration</a></li>
-            <li><a href="#start-project-github">Start project on Github</a></li>
             <li><a href="#start-project-local">Start project on local</a></li>
             <li><a href="#basic-commands">Basic commands</a></li>
             <li><a href="#merge-conflicts">Merge conflicts</a></li>
@@ -34,16 +33,11 @@
           <ul>
             <li><code>git config --global user.name "First Last"</code></li>
             <li><code>git config --global user.email "email-address@gmail.com"</code></li>
+            <li><code>git config user.name</code> <code>git config user.email</code> retrieves the username/email associated with git on your machine.</li>
+            <li>If for any reason you want to remove the git history from a project, you can delete the hidden <code>.git</code> directory in a project folder. <code>ls -a</code> shows all files (including hidden files) in a directory.</li>
+            <li>You can specify your core text editor (instead of using VIM) with <code>git config core.editor (editor name)</code>. Check out <a href="https://git-scm.com/book/en/v2/Appendix-C%3A-Git-Commands-Setup-and-Config">this list</a> for editors</li>
           </ul>  
         </section>
-        <section id='start-project-github'>
-          <h2>Starting a Project on Github</h2>
-          <ol>
-            <li>Create remote repository on Github.com</li>
-            <li>In Terminal, navigate to a directory on your computer where you want to clone the github directory. Terminal: <code>git clone &lturl of repository&gt</code></li>
-          </ol>
-        </section>
-
         <section id='start-project-local'>
           <h2>Starting a Project on Your Local Computer</h2>
           <ol>
@@ -102,13 +96,14 @@
       </section>
 
         <section id='branching'>
-          <h2>Branching</h2>
+          <h2>branching</h2>
           <ol>
             <li><code>git branch</code> tells you which local branch you're on.</li>
             <li><code>git branch &ltnew branch name&gt</code> creates a new branch.</li>
-            <li><code>git checkout -b &ltnew branch name&gt</code> creates and switches to a new branch</li>
-            <li><code>git checkout &ltbranch name&gt</code> switches to a different branch</li>
-            <li><code>git merge &ltbranch name&gt</code> merges branches. The branch you are currently on will be the one you introduce code into from the branch specified in this command.</li>
+            <li><code>git switch -c &ltnew branch name&gt</code> or <code>git checkout -b &ltnew branch name&gt</code> creates and switches to a new branch</li>
+            <li><code>git switch &ltbranch name&gt</code> or <code>git checkout &ltbranch name&gt</code> switches to a different branch</li>
+            <li><code>git branch -m &ltbranch name&gt</code> allows you to rename a branch. You have to be on the branch you want to rename to do this.</li>
+            <li><code>git merge &ltbranch name&gt</code> merges branches. The branch you are currently on will be the one you introduce code into from the branch specified in this command. There's a couple kinds of merges: fast forward, and merge commits. Fast forward just catches the branch up because nothing else has happened. But Git may need to create a merge commit if the branch you are merging into also has new work the other branch doesn't.</li>
             <li><code>git branch -d &ltbranch name&gt</code> will delete a local branch. You can't be on the branch you want to delete.</li>
             <li><code>git push &ltremote_name ex. origin&gt -d &ltremote_branch_name&gt</code> will delete a remote branch.</li>
           </ol>
@@ -157,7 +152,7 @@
         <section id="changing-history">
           <h2>Changing History</h2>
           <h3>Amending The Last Commit</h3>
-          <p>If you make a commit and and then immediately realize you need to change or edit something, you can make your edits, add files to staging, then type: <code>git commit --amend</code>. This will open up VIM, where you can update the last commit message if you want.</p>
+          <p>If you make a commit and and then immediately realize you need to change, edit something, or update a commit message, you can make your edits, add files to staging, then type: <code>git commit --amend</code>. This will open up your default text editor, where you can update the last commit message if you want.</p>
           <h3>Resetting To An Earlier Commit</h3>
           <p><code>git reset (commit hash)</code> rolls back to a previous commit. It does not get rid of changes that come after this commit hash. Instead, the changes are now unstaged. You can make a new commit if you want. This is not a good idea if you have already pushed your commit(s) to a remote repository.</p>
           <p><code>git reset --hard (commit hash)</code> is more dangerous. It actually rolls back to a previous commit, AND deletes all changes that come after.</p>
@@ -172,7 +167,7 @@
 
         <section id='vim'>
           <h2>Vim Editor</h2>
-          <p>Sometimes git opens something called a vim text editor. This happens if you don't add a message to a commit, or during merges. Here are some useful commands:</p>
+          <p>If you don't specify a default text editor, git opens something called a VIM text editor at times. This happens if you don't add a message to a commit, or during merges. Here are some useful VIM commands:</p>
           <ul>
             <li>Type <code>i</code>. This is insert mode which allows you to edit the file you are now in.</li>
             <li>Write your commit message on the first line if need be.</li>
