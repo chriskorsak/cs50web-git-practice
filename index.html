@@ -14,6 +14,7 @@
             <li><a href="#basic-commands">Basic commands</a></li>
             <li><a href="#merge-conflicts">Merge conflicts</a></li>
             <li><a href="#branching">Branching</a></li>
+            <li><a href="#diff">Git Diff</a></li>
             <li><a href="#other">Other Git commands, tips, and shortcuts</a></li>
             <li><a href="#changing-history">Changing History</a></li>
             <li><a href="#vim">Vim editor</a></li>
@@ -133,7 +134,19 @@
             d = 4
             e = 5
           </pre>
-      </section>
+        </section>
+
+        <section id="diff">
+          <h2>Git Diff</h2>
+          <ul>
+            <li><code>git diff</code> shows all unstaged changes</li>
+            <li><code>git diff HEAD</code> shows all changes since last commit (HEAD). In other words, it shows all unstaged and staged changes.</li>
+            <li><code>git diff --staged</code> shows all staged changes only</li>
+            <li>You can also add a file name to the above to only show changes from that file. Terminal: <code>git diff HEAD example.txt</code> shows all changes to example.txt since the last commit.</li>
+            <li><code>git diff branch1..branch2</code> compares changes between two branches.</li>
+            <li><code>git diff commithash1..commithash2</code> compares changes between two commits.</li>
+          </ul>
+        </section>
 
         <section id='other'>
           <h2>Other Git commands, tips, and shortcuts</h2>
