@@ -50,8 +50,8 @@
 
         <section id='basic-commands'>
           <h2>Basic Commands</h2>
-          <h3>Adding and removing files, discarding changes, committing, pushing and pulling files</h3>
           <ul>
+            <li><code>git status</code> shows the status of your repository.</li>
             <li>Add altered file to staging. Terminal: <code>git add &ltname of file&gt</code></li>
             <li>Add all altered files with specific extension to staging (ex. all html files). Terminal: <code>git add *.html</code></li>
             <li>Add all altered files to staging. Terminal: <code>git add .</code> </li>
@@ -62,11 +62,51 @@
             <li>Rename or move a file Terminal <code>git mv (filename) (new path/new file name)</code>. Put a new path if moving, leave out if renaming. This also stages the move or rename. Keep in mind when you move or rename a file using command line, the OS first deletes the old file, then creates a new file with that new name.</li>
             <li>Delete a file. Terminal: <code>git rm (filename)</code>. This also stages the deletion.</li>
             <li>Commit your changes. Terminal: <code>git commit -m "short message here detailing work you've done on files"</code></li>
-            <li>Terminal: <code>git remote add origin &lturl of repository&gt</code></li>
-            <li>Terminal: <code>git push -u origin master</code> (master/main/gh-pages, whatever the branch you'r e pushing to is called)</li>
+            <li><code>git commit -am "message"</code>. This adds all files and commits changes in one command.</li>
+            <li><code>git log</code> shows all commits and commit messages. If you have a lot of commits, use up/down buttons to scroll, then type <code>Q</code> to return to command line.</li>
+            <li><code>git log --oneline</code> each commit takes up one line (easy to scan).</li>
+            <li>Connect a remote repository to your local repository. You give the remote repo a nickname, usually 'origin.' <code>git remote add origin &lturl of repository&gt</code></li>
+            <li>Push changes to a remote repo: <code>git push -u origin master</code> (master/main/gh-pages, whatever the branch you'r e pushing to is called)</li>
             <li>Pull the latest version of project from github. Terminal: <code>git pull</code></li>
             <li><code>git show (commit hash)</code> - shows the changes in a specific commit.</li>
           </ul>
+        </section>
+
+        <section id='branching'>
+          <h2>Branching</h2>
+          <ol>
+            <li><code>git branch</code> tells you which local branch you're on.</li>
+            <li><code>git branch &ltnew branch name&gt</code> creates a new branch.</li>
+            <li><code>git switch -c &ltnew branch name&gt</code> or <code>git checkout -b &ltnew branch name&gt</code> creates and switches to a new branch</li>
+            <li><code>git switch &ltbranch name&gt</code> or <code>git checkout &ltbranch name&gt</code> switches to a different branch</li>
+            <li><code>git branch -m &ltbranch name&gt</code> allows you to rename a branch. You have to be on the branch you want to rename to do this.</li>
+            <li><code>git merge &ltbranch name&gt</code> merges branches. The branch you are currently on will be the one you introduce code into from the branch specified in this command. There's a couple kinds of merges: fast forward, and merge commits (without or with conflicts). Fast forward just catches the branch up because nothing else has happened on it. But Git may need to create a merge commit if the branch you are merging into also has new work the other branch doesn't have. It may or may not create a merge conflict on a merge commit.</li>
+            <li><code>git branch -d &ltbranch name&gt</code> will delete a local branch. You can't be on the branch you want to delete.</li>
+            <li><code>git push &ltremote_name ex. origin&gt -d &ltremote_branch_name&gt</code> will delete a remote branch.</li>
+          </ol>
+          <p>Working on a feature branch instead of the main (aka master) branch is good practice. After you have an initial commit on the main/master branch, you can create a feature/develop branch. Work on that branch, then merge into the main/master branch. This can be a good idea even if you're working solo.</p>
+          <h3>Git Fetch</h3>
+          <ol>
+            <li><code>git fetch (remote repo)</code> will download all remote branches, commits, etc, but will not merge with your local branches.</li>
+            <li><code>git branch -a</code> lists all branches, local and remote.</li>
+            <li><code>git branch -r</code> lists only remote branches.</li>
+            <li><code>git checkout (remote branch name)</code> allows you to create a local copy of a remote branch on your machine so you can explore the branch. This is good if other team-members want you to review their feature branch.</li>
+          </ol>
+
+          <h3>Sample Git Team Workflow</h3>
+          <ol>
+            <li>Setup github repository and clone to local machine</li>
+            <li>Make initial commit on main/master branch and push to remote repository</li>
+            <li>Create feature/dev branch and switch to that branch.</li>
+            <li>Code and commit work</li>
+            <li>Pull origin main/master to local main/master</li>
+              <ul>
+                <li>Switch back to master branch</li>
+                <li>Terminal: <code>Git pull origin main</code></li>
+              </ul>
+            <li>Merge local feature/dev into local main/master branch. Test code with most up to date version from origin main.</li>
+            <li>Push local main to origin main</li>
+          </ol>
         </section>
 
         <section id='merge-conflicts'>
@@ -76,8 +116,8 @@
           <h4>To fix a merge conflict:</h4>
           <ol>
             <li>Go to file with merge conflict and fix what's inside arrows.</li>
-            <li>Between head and equals signs are your local changes</li>
-            <li>Between equals sign and end arrows is remote version</li>
+            <li>Between HEAD and equals signs are your local changes</li>
+            <li>Between equals signs and end arrows are the incoming changes</li>
             <li>Remove all arrows, equal sign, and commit hash, then save</li>
             <li>Add file, commit, and push.</li>
           </ol>
@@ -95,53 +135,10 @@
           </pre>
       </section>
 
-        <section id='branching'>
-          <h2>branching</h2>
-          <ol>
-            <li><code>git branch</code> tells you which local branch you're on.</li>
-            <li><code>git branch &ltnew branch name&gt</code> creates a new branch.</li>
-            <li><code>git switch -c &ltnew branch name&gt</code> or <code>git checkout -b &ltnew branch name&gt</code> creates and switches to a new branch</li>
-            <li><code>git switch &ltbranch name&gt</code> or <code>git checkout &ltbranch name&gt</code> switches to a different branch</li>
-            <li><code>git branch -m &ltbranch name&gt</code> allows you to rename a branch. You have to be on the branch you want to rename to do this.</li>
-            <li><code>git merge &ltbranch name&gt</code> merges branches. The branch you are currently on will be the one you introduce code into from the branch specified in this command. There's a couple kinds of merges: fast forward, and merge commits. Fast forward just catches the branch up because nothing else has happened. But Git may need to create a merge commit if the branch you are merging into also has new work the other branch doesn't.</li>
-            <li><code>git branch -d &ltbranch name&gt</code> will delete a local branch. You can't be on the branch you want to delete.</li>
-            <li><code>git push &ltremote_name ex. origin&gt -d &ltremote_branch_name&gt</code> will delete a remote branch.</li>
-          </ol>
-          <p>Working on a feature branch instead of the main (aka master) branch is good practice. After you have an initial commit on the main/master branch, you can create a feature/develop branch. Work on that branch, then merge into the main/master branch. This can be a good idea even if you're working solo.</p>
-          <h3>Git Fetch</h3>
-          <ol>
-            <li><code>git fetch (remote repo)</code> will download all remote branches, commits, etc, but will not merge with your local branches.</li>
-            <li><code>git branch -a</code> lists all branches, local and remote.</li>
-            <li><code>git branch -r</code> lists only remote branches.</li>
-            <li><code>git checkout (remote branch name)</code> allows you to create a local copy of a remote branch on your machine so you can explore the branch. This is good if other team-members want you to review their feature branch.</li>
-          </ol>
-
-          <h3>Sample Git Team Workflow</h3>
-          <ol>
-            <li>Setup github repository and clone to local machine</li>
-            <li>Make inital commit on main/master branch and push to remote repository</li>
-            <li>Create feature/dev branch and switch to that branch.</li>
-            <li>Code and commit work</li>
-            <li>Pull origin main/master to local main/master</li>
-              <ul>
-                <li>Switch back to master branch</li>
-                <li>Terminal: <code>Git pull origin main</code></li>
-              </ul>
-            <li>Merge local feature/dev into local main/master branch. Test code with most up to date version from origin main.</li>
-            <li>Push local main to origin main</li>
-          </ol>
-        </section>
-
         <section id='other'>
           <h2>Other Git commands, tips, and shortcuts</h2>
           <ul>
-            <li>Terminal: <code>git status</code></li>
-              <ul>
-                <li>This tells you what's currently happening in the repository</li>
-              </ul>
-            <li><code>git commit -am "message"</code>. This adds all files and commits changes in one command.</li>
-            <li><code>git log</code> shows all commits and commit messages. If you have a lot of commits, use up/down buttons to scroll, then type <code>Q</code> to return to command line.</li>
-            <li><code>git log --oneline</code> each commit takes up one line (easy to scan).</li>
+            
             <li><code>git revert &ltcommit hash&gt</code> creates a new commit that removes the work of a specific commit. This is good in that it doesn't alter the commit history.</li>
             
             <li><code>git remote -v</code> shows you the remote repository url location.</li>
