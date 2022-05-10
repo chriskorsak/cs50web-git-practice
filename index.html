@@ -160,9 +160,12 @@
         </section>
 
         <section id="changing-history">
-          <h2>Changing History</h2>
+          <h2>Time Traveling & Changing History</h2>
           <h3>Amending The Last Commit</h3>
           <p>If you make a commit and and then immediately realize you need to change, edit something, or update a commit message, you can make your edits, add files to staging, then type: <code>git commit --amend</code>. This will open up your default text editor, where you can update the last commit message if you want.</p>
+          <h3>Checking Out an Old Commit</h3>
+          <p>If you want to go to the state of your app at a certain commit: <code>git checkout (commit hash)</code>. Keep in mind, HEAD is a pointer that normally points to the current branch reference, and the branch reference is a pointer to the last commit made on that branch. However, when you checkout a commit, you go to a 'detached head' state. This means HEAD now points to an actual commit, not a branch reference.</p>
+          <p>To go back, run <code>git switch (branch name)</code> to 're-attach' HEAD to a branch reference. You can also create a new branch based on this checked out old commit. This will also 're-attach' HEAD to the newly-created branch. In other words, you go back in time to the old commit, then branch off from there.</p>
           <h3>Resetting To An Earlier Commit</h3>
           <p><code>git reset (commit hash)</code> rolls back to a previous commit. It does not get rid of changes that come after this commit hash. Instead, the changes are now unstaged. You can make a new commit if you want. This is not a good idea if you have already pushed your commit(s) to a remote repository.</p>
           <p><code>git reset --hard (commit hash)</code> is more dangerous. It actually rolls back to a previous commit, AND deletes all changes that come after.</p>
