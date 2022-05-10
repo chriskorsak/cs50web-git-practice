@@ -85,7 +85,7 @@
             <li><code>git branch -d &ltbranch name&gt</code> will delete a local branch. You can't be on the branch you want to delete.</li>
             <li><code>git push &ltremote_name ex. origin&gt -d &ltremote_branch_name&gt</code> will delete a remote branch.</li>
           </ol>
-          <p>Working on a feature branch instead of the main (aka master) branch is good practice. After you have an initial commit on the main/master branch, you can create a feature/develop branch. Work on that branch, then merge into the main/master branch. This can be a good idea even if you're working solo.</p>
+         
           <h3>Git Fetch</h3>
           <ol>
             <li><code>git fetch (remote repo)</code> will download all remote branches, commits, etc, but will not merge with your local branches.</li>
@@ -224,12 +224,14 @@
 
         <section id="git-stash">
           <h2>Git Stash</h2>
-          <p>Git stash allows you to put all your changes 'off to the side' so you can change branches or do other work before committing. For example, let's say you made some changes but realized you were on the master branch and forgot to create a feature branch first. Ooops. No problem, just stash your files, switch to a new branch, then apply stash.
+          <p>Git stash allows you to put all your changes 'off to the side' so you can change branches or do other work before committing. You can't change branches with uncommited work if the changes would conflict with the other branch. If there are no conflicts, you CAN change branches without stashing.
           <ul>
             <li><code>git stash</code> - put unstaged and staged files in stash. You can do this multiple times.</li>
-            <li><code>git stash list</code> - displays what is in stash</li>
-            <li><code>git stash apply (optional list # to only apply a certain stash item)</code> - apply stash items, but don't clear stash.</li>
             <li><code>git stash pop</code> - applies all stashed files and clears out the stash.</li>
+            <li><code>git stash list</code> - displays what is in stash</li>
+            <li><code>git stash apply</code> - apply stash items, but don't clear stash.</li>
+            <li><code>git stash apply stash@{stash #}</code> - apply particular stash entries</li>
+            <li><code>git stash clear</code> - clear out all stashed entries</li>
           </ul>  
         </section>
 
